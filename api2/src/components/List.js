@@ -8,7 +8,7 @@ const List = (props) => {
     <ul className={classes['movies-list']}>
       {props.records.map((record) => (
         <Record
-          // key={movie.id}
+          // key={record.id}
           title={record.title}
           releaseDate={record.releaseDate}
           openingText={record.consumables}
@@ -17,5 +17,6 @@ const List = (props) => {
     </ul>
   );
 };
+
 
 export default List;

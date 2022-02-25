@@ -21,7 +21,7 @@ function App() {
 
       const transformedRecords = data.results.map((recordData) => {
         return {
-          // id: movieData.episode_id,
+          // id: recordData.MGLT,
           title: recordData.name,
           openingText: recordData.model,
           releaseDate: recordData.passengers,
