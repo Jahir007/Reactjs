@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import MoviesList from './components/MoviesList';
+import List from './components/List';
 import './App.css';
 
 function App() {
-  const [movies, setMovies] = useState([]);
+  const [records, setRecords] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchMoviesHandler = useCallback(async () => {
+  const fetchRecordsHandler = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
@@ -19,15 +19,15 @@ function App() {
 
       const data = await response.json();
 
-      const transformedMovies = data.results.map((movieData) => {
+      const transformedRecords = data.results.map((recordData) => {
         return {
           // id: movieData.episode_id,
-          title: movieData.name,
-          openingText: movieData.model,
-          releaseDate: movieData.passengers,
+          title: recordData.name,
+          openingText: recordData.model,
+          releaseDate: recordData.passengers,
         };
       });
-      setMovies(transformedMovies);
+      setRecords(transformedRecords);
     } catch (error) {
       setError(error.message);
     }
@@ -35,13 +35,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetchMoviesHandler();
-  }, [fetchMoviesHandler]);
+    fetchRecordsHandler();
+  }, [fetchRecordsHandler]);
 
   let content = <p>Found no movies.</p>;
 
-  if (movies.length > 0) {
-    content = <MoviesList movies={movies} />;
+  if (records.length > 0) {
+    content = <List records={records} />;
   }
 
   if (error) {
@@ -55,7 +55,7 @@ function App() {
   return (
     <React.Fragment>
       <section>
-        <button onClick={fetchMoviesHandler}>Fetch Movies</button>
+        <button onClick={fetchRecordsHandler}>Fetch Movies</button>
       </section>
       <section>{content}</section>
     </React.Fragment>

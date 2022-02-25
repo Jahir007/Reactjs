@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './Movie.module.css';
 
-const Movie = (props) => {
+const Record = (props) => {
   return (
     <li className={classes.movie}>
       <h2>{props.title}</h2>
@@ -12,4 +12,4 @@ const Movie = (props) => {
   );
 };
 
-export default Movie;
+export default Record;
