@@ -8,8 +8,8 @@ function HeroSection() {
   return (
     <div className='hero-container '>
       {/* <img src='/images/homeWall.jpg'/> */}
-      <h1>Advanced Parkng Management</h1>
-      <p>What are you waiting for?</p>
+      <h1>Advanced Parking Management</h1>
+      <p>What are you waiting for? book your slot now!!</p> 
       <div className='hero-btns'>
         {/* <Link to='sign-up'>
         <Button

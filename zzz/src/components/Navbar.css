@@ -61,6 +61,7 @@
 .nav-links:hover {
   border-bottom: 4px solid #fff;
   transition: all 0.2s ease-out;
+  color: rgb(145, 160, 160);
 }
 
 .fa-bars {
@@ -118,6 +119,7 @@
     top: 0;
     left: 0;
     transform: translate(25%, 50%);
+    
   }
 
   .menu-icon {
