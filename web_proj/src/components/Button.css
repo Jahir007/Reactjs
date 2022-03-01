@@ -8,6 +8,8 @@
   outline: none;
   border: none;
   cursor: pointer;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 .btn--primary {
