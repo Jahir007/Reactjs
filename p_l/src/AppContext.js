@@ -94,50 +94,50 @@ export const ContextProvider = (props) => {
 	};
 
 	// Displaying places
-	// const [loading, setLoading] = useState(true);
-	// const [places, setPlaces] = useState([]);
-	// const [searchTerm, setSearchTerm] = useState('');
+	const [loading, setLoading] = useState(true);
+	const [places, setPlaces] = useState([]);
+	const [searchTerm, setSearchTerm] = useState('');
 
-	// useEffect(() => {
-	// 	const fetchPlaces = async () => {
-	// 		setLoading(true);
-	// 		const response = await fetch(`https://parklane-24dk-default-rtdb.firebaseio.com/places.json?auth=${token}`);
-	// 		if (!response.ok) {
-	// 			throw new Error('Something went wrong!');
-	// 		}
+	useEffect(() => {
+		const fetchPlaces = async () => {
+			setLoading(true);
+			const response = await fetch(`https://parklane-24dk-default-rtdb.firebaseio.com/places.json?auth=${token}`);
+			if (!response.ok) {
+				throw new Error('Something went wrong!');
+			}
 			
-	// 		const data = await response.json();
-	// 		const loadedPlaces = [];
+			const data = await response.json();
+			const loadedPlaces = [];
 
-	// 		for (const key in data) {
-	// 			loadedPlaces.push({
-	// 				id: key,
-	// 				name: data[key].name,
-	// 				info: data[key].info,
-	// 				price: data[key].price,
-	// 				image: data[key].image
-	// 			});
-	// 		}
+			for (const key in data) {
+				loadedPlaces.push({
+					id: key,
+					name: data[key].name,
+					info: data[key].info,
+					price: data[key].price,
+					image: data[key].image
+				});
+			}
 
-	// 		setPlaces(loadedPlaces);
-	// 		setLoading(false);
-	// 	};
+			setPlaces(loadedPlaces);
+			setLoading(false);
+		};
 
-	// 	fetchPlaces().catch(error => {
-	// 		console.log(error);
-	// 		setLoading(false);
-	// 	});
-	// }, [token]);
+		fetchPlaces().catch(error => {
+			console.log(error);
+			setLoading(false);
+		});
+	}, [token]);
 
 	return (
 		<AppContext.Provider value = {{
 			isLogin,
 			token,
 			email, 
-			// loading, 
-			// places,
-			// searchTerm,
-			// setSearchTerm,
+			loading, 
+			places,
+			searchTerm,
+			setSearchTerm,
 			isLoggedIn: userIsLoggedIn,
 			switchAuthModeHandler,
 			loginHandler,

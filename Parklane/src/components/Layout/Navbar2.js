@@ -5,6 +5,7 @@ import { FaBars } from 'react-icons/fa';
 import HowItWorks from './HowItWorks';
 import {useAppContext} from '../../AppContext';
 import UserIn from './UserIn';
+
 import {
   FaHome,
   FaSignOutAlt,

@@ -7,13 +7,14 @@ import Register from "./components/Register";
 function App() {
   return (
     <BrowserRouter>
+      <Route path="/register">
+          <Register/>
+        </Route>
       <Switch>
         <Route exact path="/">
           <Login/>
         </Route>
-        <Route path="/register">
-          <Register/>
-        </Route>
+        
         <Route path="/dashboard">
           <Navbar/>
           <Dashboard/>
