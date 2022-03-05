@@ -1,13 +1,13 @@
 import { Modal, Button, Alert} from 'react-bootstrap';
 import {useContext, useEffect, useState } from 'react';
-import {EmployeeContext} from '../contexts/EmployeeContext';
-import Employee from './Employee';
+import {OwnerContext} from '../contexts/OwnerContext';
+import Owner from './Owner';
 import AddForm from './AddForm';
 import Pagination from './Pagination';
 
-const EmployeeList = () => {
+const OwnerList = () => {
 
-    const {sortedEmployees} = useContext(EmployeeContext);
+    const {sortedOwners} = useContext(OwnerContext);
 
     const [showAlert, setShowAlert] = useState(false);
 
@@ -15,10 +15,10 @@ const EmployeeList = () => {
     
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
-    //const handleShowAlert = () =>setShowAlert(true);
+    // const handleShowAlert = () =>setShowAlert(true);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [employeesPerPage] = useState(2)
+    const [ownersPerPage] = useState(6)
 
     const handleShowAlert = () => {
         setShowAlert(true);
@@ -33,12 +33,12 @@ const EmployeeList = () => {
         return () => {
             handleShowAlert();
         }
-    }, [sortedEmployees])
+    }, [sortedOwners])
 
-    const indexOfLastEmployee = currentPage * employeesPerPage;
-    const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
-    const currentEmployees = sortedEmployees.slice(indexOfFirstEmployee, indexOfLastEmployee);
-    const totalPagesNum = Math.ceil(sortedEmployees.length / employeesPerPage);
+    const indexOfLastOwner = currentPage * ownersPerPage;
+    const indexOfFirstOwner = indexOfLastOwner - ownersPerPage;
+    const currentOwners = sortedOwners.slice(indexOfFirstOwner, indexOfLastOwner);
+    const totalPagesNum = Math.ceil(sortedOwners.length / ownersPerPage);
 
 
     return (
@@ -46,16 +46,16 @@ const EmployeeList = () => {
     <div className="table-title">
         <div className="row">
             <div className="col-sm-6">
-                <h2>Manage <b>Employees</b></h2>
+                <h2>Manage <b>Owners</b></h2>
             </div>
             <div className="col-sm-6">
-                <Button onClick={handleShow} className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add New Employee</span></Button>					
+                <Button onClick={handleShow} className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add New Owner</span></Button>					
             </div>
         </div>
     </div>
 
     <Alert show={showAlert} variant="success">
-        Emlployee List Updated Succefully!
+        Owner List Updated Succefully!
     </Alert>
 
     <table className="table table-striped table-hover">
@@ -72,9 +72,9 @@ const EmployeeList = () => {
         <tbody>
 
                 {
-                  currentEmployees.map(employee => (
-                      <tr key={employee.id}>
-                        <Employee employee={employee} />
+                  currentOwners.map(owner => (
+                      <tr key={owner.id}>
+                        <Owner owner={owner} />
                     </tr>
                   ))  
                 }
@@ -85,13 +85,13 @@ const EmployeeList = () => {
 
     <Pagination pages = {totalPagesNum}
                 setCurrentPage={setCurrentPage}
-                currentEmployees ={currentEmployees}
-                sortedEmployees = {sortedEmployees} />
+                currentOwners ={currentOwners}
+                sortedOwners = {sortedOwners} />
 
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
             <Modal.Title>
-                Add Employee
+                Add Owner
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -107,4 +107,4 @@ const EmployeeList = () => {
     )
 }
 
-export default EmployeeList;
+export default OwnerList;

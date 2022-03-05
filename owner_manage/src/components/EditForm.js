@@ -1,27 +1,27 @@
 import { Form, Button } from "react-bootstrap"
 
-import {EmployeeContext} from '../contexts/EmployeeContext';
+import {OwnerContext} from '../contexts/OwnerContext';
 import {useContext, useState} from 'react';
 
-const EditForm = ({theEmployee}) =>{
+const EditForm = ({theOwner}) =>{
 
-    const id = theEmployee.id;
+    const id = theOwner.id;
 
-    const [firstname, setFirstName] = useState(theEmployee.firstname);
-    const [lastname, setLastName] = useState(theEmployee.lastname);
-    const [contactno, setContactNo] = useState(theEmployee.contactno);
-    const [email, setEmail] = useState(theEmployee.email);
-    const [vehicleno, setVehicleNo] = useState(theEmployee.vehicleno);
-    const [slotno, setSlotNo] = useState(theEmployee.slotno);
+    const [firstname, setFirstName] = useState(theOwner.firstname);
+    const [lastname, setLastName] = useState(theOwner.lastname);
+    const [contactno, setContactNo] = useState(theOwner.contactno);
+    const [email, setEmail] = useState(theOwner.email);
+    const [vehicleno, setVehicleNo] = useState(theOwner.vehicleno);
+    const [slotno, setSlotNo] = useState(theOwner.slotno);
 
 
-    const {updateEmployee} = useContext(EmployeeContext);
+    const {updateOwner} = useContext(OwnerContext);
 
-    const updatedEmployee = {id, firstname, lastname, contactno, email, vehicleno, slotno};
+    const updatedOwner = {id, firstname, lastname, contactno, email, vehicleno, slotno};
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        updateEmployee(id, updatedEmployee)
+        updateOwner(id, updatedOwner)
     }
 
      return (
@@ -87,7 +87,7 @@ const EditForm = ({theEmployee}) =>{
                 />
             </Form.Group>
             <Button variant="success" type="submit" block>
-                Edit Employee
+                Edit Owner
             </Button>
         </Form>
 

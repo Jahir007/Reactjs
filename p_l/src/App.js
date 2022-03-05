@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useAppContext } from './AppContext';
 import Loader from './components/Layout/Loader';
-import Owner from './pages/Owner';
+import OwnerPage from './pages/OwnerPage';
 import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
 import About from './pages/About';
@@ -46,9 +46,9 @@ function App() {
         )}
 
         {isLoggedIn && (
-          <Route path='/Owner'>
+          <Route path='/OwnerPage'>
             <Navbar2 />
-            <Owner />
+            <OwnerPage />
           </Route>
         )}
 

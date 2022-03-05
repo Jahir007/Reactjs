@@ -1,27 +1,27 @@
 import { Form, Button } from "react-bootstrap"
-
-import {OwnerContext} from '../contexts/OwnerContext';
 import {useContext, useState} from 'react';
+import {OwnerContext} from '../contexts/OwnerContext';
 
 
+const EditForm = ({theOwner}) =>{
 
-const AddForm = () =>{
+    const id = theOwner.id;
 
-    const {addOwner} = useContext(OwnerContext);
+    const [firstname, setFirstName] = useState(theOwner.firstname);
+    const [lastname, setLastName] = useState(theOwner.lastname);
+    const [contactno, setContactNo] = useState(theOwner.contactno);
+    const [email, setEmail] = useState(theOwner.email);
+    const [vehicleno, setVehicleNo] = useState(theOwner.vehicleno);
+    const [slotno, setSlotNo] = useState(theOwner.slotno);
 
-    const [newOwner, setNewOwner] = useState({
-        firstname:"", lastname:"", contactno:"", email:"", vehicleno:"", SlotNo:""
-    });
 
-    const onInputChange = (e) => {
-        setNewOwner({...newOwner,[e.target.name]: e.target.value})
-    }
+    const {updateOwner} = useContext(OwnerContext);
 
-    const {firstname, lastname, contactno, email, vehicleno, SlotNo} = newOwner;
+    const updatedOwner = {id, firstname, lastname, contactno, email, vehicleno, slotno};
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addOwner(firstname, lastname, contactno, email, vehicleno, SlotNo);
+        updateOwner(id, updatedOwner)
     }
 
      return (
@@ -33,7 +33,7 @@ const AddForm = () =>{
                     placeholder="First Name"
                     name="firstname"
                     value={firstname}
-                    onChange = { (e) => onInputChange(e)}
+                    onChange={(e)=> setFirstName(e.target.value)}
                     required
                 />
             </Form.Group>
@@ -43,7 +43,7 @@ const AddForm = () =>{
                     placeholder="Last Name"
                     name="lastname"
                     value={lastname}
-                    onChange = { (e) => onInputChange(e)}
+                    onChange={(e)=> setLastName(e.target.value)}
                     required
                 />
             </Form.Group>
@@ -53,7 +53,7 @@ const AddForm = () =>{
                     placeholder="Contact No"
                     name="contactno"
                     value={contactno}
-                    onChange = { (e) => onInputChange(e)}
+                    onChange={(e)=> setContactNo(e.target.value)}
                     required
                 />
             </Form.Group>
@@ -63,7 +63,7 @@ const AddForm = () =>{
                     placeholder="Email *"
                     name="email"
                     value={email}
-                    onChange = { (e) => onInputChange(e)}
+                    onChange={(e)=> setEmail(e.target.value)}
                     required
                 />
             </Form.Group>
@@ -73,7 +73,7 @@ const AddForm = () =>{
                     placeholder="Vehicle No"
                     name="vehicleno"
                     value={vehicleno}
-                    onChange = { (e) => onInputChange(e)}
+                    onChange={(e)=> setVehicleNo(e.target.value)}
                     required
                 />
             </Form.Group>
@@ -81,17 +81,17 @@ const AddForm = () =>{
                 <Form.Control
                     type="text"
                     placeholder="Slot No"
-                    name="SlotNo"
-                    value={SlotNo}
-                    onChange = { (e) => onInputChange(e)}
+                    name="slotno"
+                    value={slotno}
+                    onChange={(e)=> setSlotNo(e.target.value)}
                 />
             </Form.Group>
             <Button variant="success" type="submit" block>
-                Add New Owner
+                Edit Owner
             </Button>
         </Form>
 
      )
 }
 
-export default AddForm;
+export default EditForm;

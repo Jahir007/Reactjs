@@ -1,9 +1,10 @@
-import OwnerList from './components/OwnerList';
-import OwnerContextProvider from './contexts/OwnerContext';
+import React from 'react'
+import  OwnerContextProvider  from '../contexts/OwnerContext'
+import  OwnerList  from './OwnerList'
 
-function App() {
+const OwnerPage = () => {
   return (
-    <div className="container-xl">
+    <div className="container">
       <div className="table-responsive">
         <div className="table-wrapper">
           <OwnerContextProvider>
@@ -12,8 +13,7 @@ function App() {
         </div>
       </div>
     </div>
-
-  );
+  )
 }
 
-export default App;
+export default OwnerPage;

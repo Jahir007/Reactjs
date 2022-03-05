@@ -1,5 +1,4 @@
 import { Form, Button } from "react-bootstrap"
-
 import {OwnerContext} from '../contexts/OwnerContext';
 import {useContext, useState} from 'react';
 
@@ -86,7 +85,7 @@ const AddForm = () =>{
                     onChange = { (e) => onInputChange(e)}
                 />
             </Form.Group>
-            <Button variant="success" type="submit" block>
+            <Button variant="success" type="submit" >
                 Add New Owner
             </Button>
         </Form>
