@@ -10,6 +10,8 @@ import ContactUs from './pages/ContactUs';
 import Presence from './components/StartingPage/Presence';
 import Booking from './pages/Booking';
 import Navbar2 from './components/Layout/Navbar2'
+import GuestPage from './pages/GuestPage';
+import Ticket from './pages/Ticket';
 
 // const AuthPage = React.lazy(() => import('./pages/AuthPage'));
 // const HomePage = React.lazy(() => import('./pages/HomePage'));
@@ -51,6 +53,20 @@ function App() {
             <OwnerPage />
           </Route>
         )}
+        {isLoggedIn && (
+          <Route path='/GuestPage'>
+            <Navbar2 />
+            <GuestPage />
+          </Route>
+        )}
+
+        {isLoggedIn && (
+          <Route path='/Ticket'>
+            <Navbar2 />
+            <Ticket />
+          </Route>
+        )}
+
 
         {isLoggedIn && (
           <Route path='/About'>

@@ -85,7 +85,7 @@ const AddForm = () =>{
                     onChange = { (e) => onInputChange(e)}
                 />
             </Form.Group>
-            <Button variant="success" type="submit" >
+            <Button className='btn' variant="success" type="submit" >
                 Add New Owner
             </Button>
         </Form>

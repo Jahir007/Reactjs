@@ -86,7 +86,7 @@ const EditForm = ({theOwner}) =>{
                     onChange={(e)=> setSlotNo(e.target.value)}
                 />
             </Form.Group>
-            <Button variant="success" type="submit" block>
+            <Button className="btn btn-primary" variant="success" type="submit" block>
                 Edit Owner
             </Button>
         </Form>
