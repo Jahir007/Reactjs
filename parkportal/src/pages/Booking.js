@@ -1,11 +1,19 @@
-import React from 'react'
+import GuestList from './GuestList';
+import GuestContextProvider from '../contexts/GuestContext';
 
-const Booking = () => {
+function App() {
   return (
-    <div className=''>
-        <h1> Booking</h1>
+    <div className="container-xl">
+      <div className="table-responsive">
+        <div className="table-wrapper">
+          <GuestContextProvider>
+            <GuestList />
+          </GuestContextProvider>
+        </div>
+      </div>  
     </div>
-  )
+
+  );
 }
 
-export default Booking;
+export default App;
