@@ -56,7 +56,7 @@ export default function BusList({ value: dataInp }) {
                             <span className={reset ? "badge badge-danger ml-5" : "disabled"} onClick={e => handleReset(e)}>Reset</span>
                         </div>
                     </div>
-                </div >
+                </div>
             )
         })
 

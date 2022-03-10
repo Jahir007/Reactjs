@@ -9,8 +9,9 @@ html {
 .plane {
     margin: 50px 0px;
     max-width: 300px;
-    background-color: rgba(65, 45, 45, 0.534);
+    background-color: rgba(228, 121, 121, 0.534);
     border-radius:5px;
+    margin-left:  1.2rem;
 }
 
 .fuselage {
@@ -19,7 +20,7 @@ html {
 
 ol {
     list-style: none;
-    padding: 0;
+    padding: 16px;
     margin: 0;
 }
 

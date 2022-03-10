@@ -19,7 +19,7 @@ export default function Ticket({ history }) {
     const getSeatNumbers = () => {
         let noArray = localStorage.getItem("reservedSeats")
         let arr = JSON.parse(noArray)
-        console.log(arr)
+        // console.log(arr)
         return arr.map((element, idx) => {
             return (
                 <div key={idx}>
