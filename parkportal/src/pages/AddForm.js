@@ -86,7 +86,7 @@ const AddForm = () =>{
                     onChange = { (e) => onInputChange(e)}
                 />
             </Form.Group>
-            <Button variant="success" type="submit" block>
+            <Button className="d-grid mx-auto" variant="success" type="submit" block>
                 Add New Owner
             </Button>
         </Form>

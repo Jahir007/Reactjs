@@ -20,12 +20,12 @@ const Guest = ({guest}) => {
 
     return (
         <>
-            <td>{guest.firstname}</td>
-            <td>{guest.lastname}</td>
+            <td>{guest.firstname}{" "}{guest.lastname}</td>
+            {/* <td>{guest.lastname}</td> */}
             <td>{guest.contactno}</td>
-            <td>{guest.email}</td>
-            <td>{guest.vehicleno}</td>
-            <td>{guest.slotno}</td>
+            <td>{}</td>
+            <td>{}</td>
+            <td>{}</td>
             <td>
                 <OverlayTrigger
                     overlay={
@@ -33,7 +33,7 @@ const Guest = ({guest}) => {
                             Edit
                         </Tooltip>
                     }>
-                    <button onClick={handleShow}  className="btn text-warning btn-act" data-toggle="modal"><i className="material-icons">&#xE254;</i></button>
+                    <button onClick={handleShow}  className="btn text-warning btn-act" data-toggle="modal"><i className="material-icons">&#xE870;</i></button>
                 </OverlayTrigger>
                 <OverlayTrigger
                     overlay={
@@ -41,7 +41,7 @@ const Guest = ({guest}) => {
                             Delete
                         </Tooltip>
                     }>
-                    <button onClick={() => deleteGuest(guest.id)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xE872;</i></button>
+                    <button onClick={() => deleteGuest(guest.id)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xF230;</i></button>
                 </OverlayTrigger>
                 
                 

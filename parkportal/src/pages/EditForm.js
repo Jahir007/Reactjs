@@ -86,7 +86,7 @@ const EditForm = ({theOwner}) =>{
                     onChange={(e)=> setSlotNo(e.target.value)}
                 />
             </Form.Group>
-            <Button variant="success" type="submit" block>
+            <Button className="d-grid mx-auto" variant="success" type="submit" block>
                 Edit Owner
             </Button>
         </Form>

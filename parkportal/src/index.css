@@ -976,7 +976,7 @@ table.table td a:hover {
 	color: #2196F3;
 }
 table.table td a.edit {
-	color: #FFC107;
+	color: #9e7f22;
 }
 table.table td a.delete {
 	color: #F44336;
@@ -1049,6 +1049,7 @@ table.table .avatar {
 	border-radius: 2px;
 	box-shadow: none;
 	border-color: #dddddd;
+  margin: 1rem;
 }
 .modal textarea.form-control {
 	resize: vertical;

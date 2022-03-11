@@ -6,11 +6,11 @@ export const GuestContext = createContext()
 const GuestContextProvider  = (props) => {
 
     const [guests, setGuests] = useState([
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland' },
+        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland' },
+        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland' },
+        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland' },
+        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland' },
 
     ]);
 
@@ -28,8 +28,8 @@ const GuestContextProvider  = (props) => {
     
     
     
-    const addGuest = (firstname, lastname, contactno, email, vehicleno, slotno) => {
-        setGuests([...guests , {id:uuidv4(), firstname, lastname, contactno, email, vehicleno, slotno}])
+    const addGuest = (firstname, lastname, contactno, email) => {
+        setGuests([...guests , {id:uuidv4(), firstname, lastname, contactno, email}])
     }
     
     const deleteGuest = (id) => {
