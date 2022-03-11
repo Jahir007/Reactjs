@@ -56,7 +56,7 @@ const AddForm1 = () =>{
                     onChange = { (e) => onInputChange(e)}
                     required
                 />
-            </Form.Group>
+            {/* </Form.Group>
             <Form.Group>
                 <Form.Control
                     type="email"
@@ -65,9 +65,9 @@ const AddForm1 = () =>{
                     value={email}
                     onChange = { (e) => onInputChange(e)}
                     required
-                />
+                /> */}
             </Form.Group>
-            {/* <Form.Group>
+            <Form.Group>
                 <Form.Control
                     type="text"
                     placeholder="Vehicle No"
@@ -77,7 +77,7 @@ const AddForm1 = () =>{
                     required
                 />
             </Form.Group>
-            <Form.Group>
+            {/* <Form.Group>
                 <Form.Control
                     type="text"
                     placeholder="Slot No"
@@ -87,7 +87,7 @@ const AddForm1 = () =>{
                 />
             </Form.Group> */}
             <Button className="d-grid mx-auto" variant="success" type="submit" block>
-                Add New Guest
+                Add details
             </Button>
         </Form>
 

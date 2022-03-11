@@ -2,17 +2,29 @@ import { Form, Button } from "react-bootstrap"
 
 import {GuestContext} from '../contexts/GuestContext';
 import {useContext, useState} from 'react';
+import Select from 'react-select'
 
 const EditForm1 = ({theGuest}) =>{
 
+
+    const options = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+      ]
+
+
     const id = theGuest.id;
 
-    const [firstname, setFirstName] = useState(theGuest.firstname);
+    const [firstname] = useState(theGuest.firstname);
     const [lastname, setLastName] = useState(theGuest.lastname);
     const [contactno, setContactNo] = useState(theGuest.contactno);
     const [email, setEmail] = useState(theGuest.email);
     const [vehicleno, setVehicleNo] = useState(theGuest.vehicleno);
     const [slotno, setSlotNo] = useState(theGuest.slotno);
+    // const [vehtype, setVehtype] = useState(theGuest.vehtype)
+    // const [intime, setIntime] = useState(theGuest.intime)
+    //  const [outtime,setOuttime] = useState(theGuest.outtime)
 
 
     const {updateGuest} = useContext(GuestContext);
@@ -28,14 +40,15 @@ const EditForm1 = ({theGuest}) =>{
 
         <Form onSubmit={handleSubmit}>
             <Form.Group>
-                <Form.Control
+            <Select options={options} />
+                {/* <Form.Control
                     type="text"
-                    placeholder="First Name"
-                    name="firstname"
-                    value={firstname}
-                    onChange={(e)=> setFirstName(e.target.value)}
+                    placeholder="Vechile Type"
+                    name="vehtype"
+                    value={vehtype}
+                    onChange={(e)=> setVehtype(e.target.value)}
                     required
-                />
+                /> */}
             </Form.Group>
             <Form.Group>
                 <Form.Control
@@ -87,7 +100,7 @@ const EditForm1 = ({theGuest}) =>{
                 />
             </Form.Group>
             <Button className="d-grid mx-auto" variant="success" type="submit" block>
-                Edit Guest
+                Pay
             </Button>
         </Form>
 

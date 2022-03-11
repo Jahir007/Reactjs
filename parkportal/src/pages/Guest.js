@@ -1,7 +1,8 @@
-import {useContext, useState, useEffect} from 'react';
-import {GuestContext} from '../contexts/GuestContext';
 import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import {useContext, useState, useEffect} from 'react';
 import EditForm1 from './EditForm1'
+import {GuestContext} from '../contexts/GuestContext';
+
 
 
 
@@ -23,9 +24,8 @@ const Guest = ({guest}) => {
             <td>{guest.firstname}{" "}{guest.lastname}</td>
             {/* <td>{guest.lastname}</td> */}
             <td>{guest.contactno}</td>
-            <td>{}</td>
-            <td>{}</td>
-            <td>{}</td>
+            <td>{guest.vehicleno}</td>
+            {/* <td>{guest.slotno}</td> */}
             <td>
                 <OverlayTrigger
                     overlay={
@@ -33,7 +33,7 @@ const Guest = ({guest}) => {
                             Edit
                         </Tooltip>
                     }>
-                    <button onClick={handleShow}  className="btn text-warning btn-act" data-toggle="modal"><i className="material-icons">&#xE870;</i></button>
+                    <button onClick={handleShow}  className="btn text-warning btn-act" data-toggle="modal"><i className="material-icons">&#xeff1;</i></button>
                 </OverlayTrigger>
                 <OverlayTrigger
                     overlay={
@@ -41,7 +41,7 @@ const Guest = ({guest}) => {
                             Delete
                         </Tooltip>
                     }>
-                    <button onClick={() => deleteGuest(guest.id)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xF230;</i></button>
+                    <button onClick={() => deleteGuest(guest.id)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xe0e9;</i></button>
                 </OverlayTrigger>
                 
                 
@@ -50,7 +50,7 @@ const Guest = ({guest}) => {
             <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
             <Modal.Title>
-                Edit Guest
+                Payment
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>

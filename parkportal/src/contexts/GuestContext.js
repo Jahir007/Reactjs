@@ -6,11 +6,11 @@ export const GuestContext = createContext()
 const GuestContextProvider  = (props) => {
 
     const [guests, setGuests] = useState([
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland' },
+        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
 
     ]);
 
@@ -19,7 +19,7 @@ const GuestContextProvider  = (props) => {
     },[])
     
     useEffect(() => {
-        localStorage.setItem('quests', JSON.stringify(guests));
+        localStorage.setItem('guests', JSON.stringify(guests));
     })
     
     
@@ -28,8 +28,8 @@ const GuestContextProvider  = (props) => {
     
     
     
-    const addGuest = (firstname, lastname, contactno, email) => {
-        setGuests([...guests , {id:uuidv4(), firstname, lastname, contactno, email}])
+    const addGuest = (firstname, lastname, contactno, vehicleno, slotno) => {
+        setGuests([...guests , {id:uuidv4(), firstname, lastname, contactno,vehicleno, slotno}])
     }
     
     const deleteGuest = (id) => {
@@ -47,4 +47,4 @@ const GuestContextProvider  = (props) => {
         )
     }
     
-    export default GuestContextProvider;
+export default GuestContextProvider;
