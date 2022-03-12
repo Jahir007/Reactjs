@@ -2,10 +2,13 @@ import { Form, Button } from "react-bootstrap"
 
 import {OwnerContext} from '../contexts/OwnerContext';
 import {useContext, useState} from 'react';
+import Axios from 'axios' ;
 
 
 
 const AddForm = () =>{
+
+    const url = "http://localhost/Reactjs/parkportal/src/Api/insert.php";
 
     const {addOwner} = useContext(OwnerContext);
 
@@ -15,6 +18,8 @@ const AddForm = () =>{
 
     const onInputChange = (e) => {
         setNewOwner({...newOwner,[e.target.name]: e.target.value})
+        // setNewOwner(newOwner);
+        //  console.log(newOwner);
     }
 
     const {firstname, lastname, contactno, email, vehicleno, SlotNo} = newOwner;
@@ -22,6 +27,17 @@ const AddForm = () =>{
     const handleSubmit = (e) => {
         e.preventDefault();
         addOwner(firstname, lastname, contactno, email, vehicleno, SlotNo);
+        console.log(newOwner);
+        Axios.post(url,  {
+            // id: e.target.id,
+            firstname: newOwner.firstname,
+            lastname: newOwner.lastname,
+            contactno: newOwner.contactno,
+            email: newOwner.email,
+            vehicleno: newOwner.vehicleno,
+            SlotNo: newOwner.SlotNo    
+        })
+        .then(res => console.log(res.addOwner))
     }
 
      return (
@@ -84,6 +100,8 @@ const AddForm = () =>{
                     name="SlotNo"
                     value={SlotNo}
                     onChange = { (e) => onInputChange(e)}
+                    required
+
                 />
             </Form.Group>
             <Button className="d-grid mx-auto" variant="success" type="submit" block>

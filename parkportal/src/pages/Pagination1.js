@@ -21,7 +21,7 @@ const Pagination1 = ({pages, setCurrentPage, currentGuests, sortedGuests}) => {
         <ul className="pagination">
             <li className={`${currentButton === 1 ? 'page-item disabled' : 'page-item' }`}><a href="#!"
                 onClick = { () => setCurrentButton((prev) => prev === 1 ? prev : prev - 1)}
-            >Previous</a></li>
+            >Prev</a></li>
 {
             numOfPages.map((page, index) => {
                 return (

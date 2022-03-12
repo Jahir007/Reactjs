@@ -6,11 +6,11 @@ export const GuestContext = createContext()
 const GuestContextProvider  = (props) => {
 
     const [guests, setGuests] = useState([
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
 
     ]);
 

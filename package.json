@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@types/jwt-decode": "^3.1.0",
+    "axios": "^0.26.1",
     "jwt-decode": "^3.1.2",
     "react-credit-cards": "^0.8.3",
     "react-router-dom": "^5.3.0",
