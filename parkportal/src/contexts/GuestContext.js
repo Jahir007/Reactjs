@@ -1,18 +1,14 @@
 import {createContext, useEffect, useState} from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Axios from 'axios';
 
 export const GuestContext = createContext()
 
 const GuestContextProvider  = (props) => {
 
-    const [guests, setGuests] = useState([
-        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+    const url = "http://localhost/Reactjs/parkportal/src/Api/guestdelete.php";
 
-    ]);
+    const [guests, setGuests] = useState([]);
 
     useEffect(()=> {
         setGuests(JSON.parse(localStorage.getItem('guests')))
@@ -28,12 +24,17 @@ const GuestContextProvider  = (props) => {
     
     
     
-    const addGuest = (firstname, lastname, contactno, vehicleno, slotno) => {
-        setGuests([...guests , {id:uuidv4(), firstname, lastname, contactno,vehicleno, slotno}])
+    const addGuest = (firstname, lcno, duration, slotno, startdate, remarks) => {
+        setGuests([...guests , {id:uuidv4(), firstname, lcno, duration,slotno, startdate, remarks}])
     }
     
-    const deleteGuest = (id) => {
-        setGuests(guests.filter(guest => guest.id !== id))
+    const deleteGuest = (firstname, lcno, duration, slotno, startdate, remarks) => {
+        setGuests(guests.filter(guest => guest.firstname !== firstname))
+        Axios.post(url, {
+            firstname, lcno, duration, slotno, startdate, remarks
+        })
+        .then(res => console.log(res))
+        console.log(guests);
     }
     
     const updateGuest = (id, updatedGuest) => {

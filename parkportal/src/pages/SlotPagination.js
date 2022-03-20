@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Pagination1 = ({pages, setCurrentPage, currentGuests, sortedGuests}) => {
+const Pagination = ({pages, setCurrentPage, currentSlots, sortedSlots}) => {
 
 
     const numOfPages = [];
@@ -17,11 +17,11 @@ const Pagination1 = ({pages, setCurrentPage, currentGuests, sortedGuests}) => {
 
     return (
         <div className="clearfix">
-        <div className="hint-text">Showing <b>{currentGuests.length}</b> out of <b>{sortedGuests.length}</b> entries</div>
+        <div className="hint-text">Showing <b>{currentSlots.length}</b> out of <b>{sortedSlots.length}</b> entries</div>
         <ul className="pagination">
             <li className={`${currentButton === 1 ? 'page-item disabled' : 'page-item' }`}><a href="#!"
                 onClick = { () => setCurrentButton((prev) => prev === 1 ? prev : prev - 1)}
-            >Previous</a></li>
+            >Prev</a></li>
 {
             numOfPages.map((page, index) => {
                 return (
@@ -41,4 +41,4 @@ const Pagination1 = ({pages, setCurrentPage, currentGuests, sortedGuests}) => {
     )
 }
 
-export default Pagination1;
+export default Pagination;

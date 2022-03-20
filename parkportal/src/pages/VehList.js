@@ -1,13 +1,13 @@
 import { Modal, Button, Alert} from 'react-bootstrap';
 import {useContext, useEffect, useState } from 'react';
-import {GuestContext} from '../contexts/GuestContext';
-import Guest from './Guest';
-import AddForm1 from './AddForm1';
-import Pagination1 from './Pagination1';
+import {VehicleContext} from '../contexts/VehicleContext';
+import Vehicle from './Vehicle';
+import AddVeh from './AddVeh';
+import VehPagination from './VehPagination';
 
-const GuestList = () => {
+const VehList = () => {
 
-    const {sortedGuests} = useContext(GuestContext);
+    const {sortedVehicles} = useContext(VehicleContext);
 
     const [showAlert, setShowAlert] = useState(false);
 
@@ -18,7 +18,7 @@ const GuestList = () => {
     // const handleShowAlert = () =>setShowAlert(true);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [guestsPerPage] = useState(6)
+    const [vehiclesPerPage] = useState(6)
 
     const handleShowAlert = () => {
         setShowAlert(true);
@@ -33,12 +33,12 @@ const GuestList = () => {
         return () => {
             handleShowAlert();
         }
-    }, [sortedGuests])
+    }, [sortedVehicles])
 
-    const indexOfLastGuest = currentPage * guestsPerPage;
-    const indexOfFirstGuest = indexOfLastGuest - guestsPerPage;
-    const currentGuests = sortedGuests.slice(indexOfFirstGuest, indexOfLastGuest);
-    const totalPagesNum = Math.ceil(sortedGuests.length / guestsPerPage);
+    const indexOfLastVehicle = currentPage * vehiclesPerPage;
+    const indexOfFirstVehicle = indexOfLastVehicle - vehiclesPerPage;
+    const currentVehicles = sortedVehicles.slice(indexOfFirstVehicle, indexOfLastVehicle);
+    const totalPagesNum = Math.ceil(sortedVehicles.length / vehiclesPerPage);
 
 
     return (
@@ -46,36 +46,36 @@ const GuestList = () => {
     <div className="table-title">
         <div className="row">
             <div className="col-sm-6">
-                <h2>Manage <b>Guest</b></h2>
+                <h2>Manage <b>Vehicle</b></h2>
             </div>
             <div className="col-sm-6">
-                <Button onClick={handleShow} className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add Guest</span></Button>					
+                <Button onClick={handleShow} className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add vehicle</span></Button>					
             </div>
         </div>
     </div>
 
     <Alert show={showAlert} variant="success">
-        Guest List Updated Succefully!
+        vehicle List Updated Succefully!
     </Alert>
 
     <table className="table table-striped table-hover">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Lc_number</th>
-                <th>duration</th>
-                <th>Slot No</th>
-                <th>Start-date</th>
-                <th>Remarks</th>
+                <th>Category ID</th>
+                <th>License No</th>
+                <th>description</th>
+                <th>Photo</th>
+                <th>Owner ID</th>
+                <th>Date</th>
                 
             </tr>
         </thead>
         <tbody>
 
                 {
-                  currentGuests.map(guest => (
-                      <tr key={guest.id}>
-                        <Guest guest={guest} />
+                  currentVehicles.map(vehicle => (
+                      <tr key={vehicle.id}>
+                        <Vehicle vehicle={vehicle} />
                     </tr>
                   ))  
                 }
@@ -84,19 +84,19 @@ const GuestList = () => {
         </tbody>
     </table>
 
-    <Pagination1 pages = {totalPagesNum}
+    <VehPagination pages = {totalPagesNum}
                 setCurrentPage={setCurrentPage}
-                currentGuests ={currentGuests}
-                sortedGuests = {sortedGuests} />
+                currentVehicles ={currentVehicles}
+                sortedVehicles = {sortedVehicles} />
 
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
             <Modal.Title>
-                Guest Details
+                Vehcile Details
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <AddForm1 />
+            <AddVeh />
         </Modal.Body>
         <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
@@ -108,4 +108,4 @@ const GuestList = () => {
     )
 }
 
-export default GuestList;
+export default VehList;

@@ -1,30 +1,45 @@
 import { Form, Button } from "react-bootstrap"
 
-import {GuestContext} from '../contexts/GuestContext';
-import {useContext, useState} from 'react';
+import { GuestContext } from '../contexts/GuestContext';
+import { useContext, useState } from 'react';
+import Axios from "axios";
 
 
 
-const AddForm1 = () =>{
 
-    const {addGuest} = useContext(GuestContext);
+const AddForm1 = () => {
+
+    const url = "http://localhost/Reactjs/parkportal/src/Api/guestcreate.php";
+
+    const { addGuest } = useContext(GuestContext);
 
     const [newGuest, setNewGuest] = useState({
-        firstname:"", lastname:"", contactno:"", email:"", vehicleno:"", SlotNo:""
+        firstname: "", lcno: "", duration: "", slotno: "", startdate: "", remarks: "",
     });
 
     const onInputChange = (e) => {
-        setNewGuest({...newGuest,[e.target.name]: e.target.value})
+        setNewGuest({ ...newGuest, [e.target.name]: e.target.value })
     }
 
-    const {firstname, lastname, contactno, email, vehicleno, SlotNo} = newGuest;
+    const { firstname, lcno, duration, slotno, startdate, remarks } = newGuest;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addGuest(firstname, lastname, contactno, email, vehicleno, SlotNo);
+        addGuest(firstname, lcno, duration, slotno, startdate, remarks);
+        console.log(newGuest);
+        Axios.post(url, {
+            // id: e.target.id,
+            firstname: newGuest.firstname,
+            lcno: newGuest.lcno,
+            duration: newGuest.duration,
+            slotno: newGuest.slotno,
+            startdate: newGuest.startdate,
+            remarks: newGuest.remarks
+        })
+            .then(res => console.log(res.addGuest))
     }
 
-     return (
+    return (
 
         <Form onSubmit={handleSubmit}>
             <Form.Group>
@@ -33,65 +48,66 @@ const AddForm1 = () =>{
                     placeholder="First Name"
                     name="firstname"
                     value={firstname}
-                    onChange = { (e) => onInputChange(e)}
+                    onChange={(e) => onInputChange(e)}
                     required
                 />
             </Form.Group>
             <Form.Group>
                 <Form.Control
                     type="text"
-                    placeholder="Last Name"
-                    name="lastname"
-                    value={lastname}
-                    onChange = { (e) => onInputChange(e)}
+                    placeholder="Lc_number"
+                    name="lcno"
+                    value={lcno}
+                    onChange={(e) => onInputChange(e)}
                     required
                 />
             </Form.Group>
             <Form.Group>
                 <Form.Control
-                    type="text"
-                    placeholder="Contact No"
-                    name="contactno"
-                    value={contactno}
-                    onChange = { (e) => onInputChange(e)}
+                    type="number"
+                    placeholder="duration in hrs"
+                    name="duration"
+                    value={duration}
+                    onChange={(e) => onInputChange(e)}
                     required
                 />
-            {/* </Form.Group>
+            </Form.Group>
+
+
             <Form.Group>
                 <Form.Control
-                    type="email"
-                    placeholder="Email *"
-                    name="email"
-                    value={email}
-                    onChange = { (e) => onInputChange(e)}
-                    required
-                /> */}
+                    type="text"
+                    placeholder="slot ID number"
+                    name="slotno"
+                    value={slotno}
+                    onChange={(e) => onInputChange(e)}
+                />
+            </Form.Group>
+            <Form.Group controlId="date" bsSize="large">
+                <Form.Control
+                    type="date"
+                    style={{ width: '100%' }}
+                    placeholder="Start Date"
+                    name="startdate"
+                    value={startdate}
+                    onChange={(e) => onInputChange(e)}
+                />
             </Form.Group>
             <Form.Group>
                 <Form.Control
                     type="text"
-                    placeholder="Vehicle No"
-                    name="vehicleno"
-                    value={vehicleno}
-                    onChange = { (e) => onInputChange(e)}
-                    required
+                    placeholder="remarks"
+                    name="remarks"
+                    value={remarks}
+                    onChange={(e) => onInputChange(e)}
                 />
             </Form.Group>
-            {/* <Form.Group>
-                <Form.Control
-                    type="text"
-                    placeholder="Slot No"
-                    name="SlotNo"
-                    value={SlotNo}
-                    onChange = { (e) => onInputChange(e)}
-                />
-            </Form.Group> */}
             <Button className="d-grid mx-auto" variant="success" type="submit" block>
                 Add details
             </Button>
         </Form>
 
-     )
+    )
 }
 
 export default AddForm1;

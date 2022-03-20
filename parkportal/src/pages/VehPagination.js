@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Pagination1 = ({pages, setCurrentPage, currentGuests, sortedGuests}) => {
+const VehPagination = ({pages, setCurrentPage, currentVehicles, sortedVehicles}) => {
 
 
     const numOfPages = [];
@@ -17,7 +17,7 @@ const Pagination1 = ({pages, setCurrentPage, currentGuests, sortedGuests}) => {
 
     return (
         <div className="clearfix">
-        <div className="hint-text">Showing <b>{currentGuests.length}</b> out of <b>{sortedGuests.length}</b> entries</div>
+        <div className="hint-text">Showing <b>{currentVehicles.length}</b> out of <b>{sortedVehicles.length}</b> entries</div>
         <ul className="pagination">
             <li className={`${currentButton === 1 ? 'page-item disabled' : 'page-item' }`}><a href="#!"
                 onClick = { () => setCurrentButton((prev) => prev === 1 ? prev : prev - 1)}
@@ -41,4 +41,4 @@ const Pagination1 = ({pages, setCurrentPage, currentGuests, sortedGuests}) => {
     )
 }
 
-export default Pagination1;
+export default VehPagination;

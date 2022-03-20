@@ -1,14 +1,18 @@
-import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import {useContext, useState, useEffect} from 'react';
-import EditForm1 from './EditForm1'
-import {GuestContext} from '../contexts/GuestContext';
+import {SlotContext} from '../contexts/SlotContext';
+import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import EditSlot from './EditSlot'; 
+// import Axios from 'axios';
 
 
 
 
-const Guest = ({guest}) => {
+const Slot = ({slot}) => {
 
-    const {deleteGuest} = useContext(GuestContext)
+    // const url = "http://localhost/Reactjs/parkportal/src/Api/insert.php";
+
+    const {deleteSlot} = useContext(SlotContext)
+    
 
     const [show, setShow] = useState(false);
     
@@ -17,16 +21,18 @@ const Guest = ({guest}) => {
 
     useEffect(() => {
         handleClose()
-    }, [guest])
+    }, [slot])
+
+
 
     return (
         <>
-            <td>{guest.firstname}</td>
-            <td>{guest.lcno}</td>
-            <td>{guest.duration}</td>
-            <td>{guest.slotno}</td>
-            <td>{guest.startdate}</td>
-            <td>{guest.remarks}</td>
+            <td>{slot.firstname}</td>
+            <td>{slot.slotnumber}</td>
+            <td>{slot.ownerid}</td>
+            <td>{slot.createdt}</td>
+            {/* <td>{slot.vehicleno}</td>
+            <td>{slot.slotno}</td> */}
             <td>
                 <OverlayTrigger
                     overlay={
@@ -42,7 +48,7 @@ const Guest = ({guest}) => {
                             Delete
                         </Tooltip>
                     }>
-                    <button onClick={() => deleteGuest(guest.firstname)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xE872;</i></button>
+                    <button onClick={() => deleteSlot(slot.firstname)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xE872;</i></button>
                 </OverlayTrigger>
                 
                 
@@ -51,11 +57,11 @@ const Guest = ({guest}) => {
             <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
             <Modal.Title>
-                Edit Guest
+                Edit Slot
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <EditForm1 theGuest={guest} />
+            <EditSlot theSlot={slot} />
         </Modal.Body>
         <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
@@ -67,4 +73,4 @@ const Guest = ({guest}) => {
     )
 }
 
-export default Guest;
+export default Slot;

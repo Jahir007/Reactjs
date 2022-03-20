@@ -1,18 +1,14 @@
 import {createContext, useEffect, useState} from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Axios from 'axios';
 
 export const OwnerContext = createContext()
 
 const OwnerContextProvider  = (props) => {
 
-    const [owners, setOwners] = useState([
-        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
-        // { id: uuidv4(), firstname: 'Thomas', lastname: 'Hardy', contactno: '1087654321', email: 'thomashardy@maiortland', vehicleno: 'GJ15-AL6222', slotno: 'A10' },
+    const url = "http://localhost/Reactjs/parkportal/src/Api/delete.php";
 
-    ]);
+    const [owners, setOwners] = useState([]);
 
     useEffect(()=> {
         setOwners(JSON.parse(localStorage.getItem('owners')))
@@ -28,12 +24,20 @@ const OwnerContextProvider  = (props) => {
     
     
     
-    const addOwner = (firstname, lastname, contactno, email, vehicleno, slotno) => {
-        setOwners([...owners , {id:uuidv4(), firstname, lastname, contactno, email, vehicleno, slotno}])
+    const addOwner = (firstname, lastname, contactno, email) => {
+        setOwners([...owners , {id:uuidv4(), firstname, lastname, contactno, email}])
     }
     
-    const deleteOwner = (id) => {
-        setOwners(owners.filter(owner => owner.id !== id))
+    const deleteOwner = (firstname, lastname, contactno, email) => {
+        setOwners(owners.filter(owner => owner.firstname !== firstname))
+        Axios.post(url, {
+            firstname, lastname, contactno, email
+            // vehicleno: owners.vehicleno,
+            // slotno: owners.slotno
+
+        })
+        .then(res => console.log(res))
+        console.log(owners);
     }
     
     const updateOwner = (id, updatedOwner) => {

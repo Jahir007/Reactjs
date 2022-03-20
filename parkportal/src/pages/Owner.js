@@ -2,12 +2,17 @@ import {useContext, useState, useEffect} from 'react';
 import {OwnerContext} from '../contexts/OwnerContext';
 import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import EditForm from './EditForm'
+// import Axios from 'axios';
+
 
 
 
 const Owner = ({owner}) => {
 
+    // const url = "http://localhost/Reactjs/parkportal/src/Api/insert.php";
+
     const {deleteOwner} = useContext(OwnerContext)
+    
 
     const [show, setShow] = useState(false);
     
@@ -17,6 +22,8 @@ const Owner = ({owner}) => {
     useEffect(() => {
         handleClose()
     }, [owner])
+
+
 
     return (
         <>
@@ -41,7 +48,7 @@ const Owner = ({owner}) => {
                             Delete
                         </Tooltip>
                     }>
-                    <button onClick={() => deleteOwner(owner.id)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xE872;</i></button>
+                    <button onClick={() => deleteOwner(owner.firstname)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xE872;</i></button>
                 </OverlayTrigger>
                 
                 

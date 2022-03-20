@@ -1,14 +1,14 @@
 import { Modal, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import {useContext, useState, useEffect} from 'react';
-import EditForm1 from './EditForm1'
-import {GuestContext} from '../contexts/GuestContext';
+import EditVeh from './EditVeh'
+import {VehicleContext} from '../contexts/VehicleContext';
 
 
 
 
-const Guest = ({guest}) => {
+const Vehicle = ({vehicle}) => {
 
-    const {deleteGuest} = useContext(GuestContext)
+    const {deleteVehicle} = useContext(VehicleContext)
 
     const [show, setShow] = useState(false);
     
@@ -17,16 +17,16 @@ const Guest = ({guest}) => {
 
     useEffect(() => {
         handleClose()
-    }, [guest])
+    }, [vehicle])
 
     return (
         <>
-            <td>{guest.firstname}</td>
-            <td>{guest.lcno}</td>
-            <td>{guest.duration}</td>
-            <td>{guest.slotno}</td>
-            <td>{guest.startdate}</td>
-            <td>{guest.remarks}</td>
+            <td>{vehicle.categoryid}</td>
+            <td>{vehicle.lcnumber}</td>
+            <td>{vehicle.description}</td>
+            <td>{vehicle.photo}</td>
+            <td>{vehicle.ownerid}</td>
+            <td>{vehicle.createdt}</td>
             <td>
                 <OverlayTrigger
                     overlay={
@@ -42,7 +42,7 @@ const Guest = ({guest}) => {
                             Delete
                         </Tooltip>
                     }>
-                    <button onClick={() => deleteGuest(guest.firstname)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xE872;</i></button>
+                    <button onClick={() => deleteVehicle(vehicle.categoryid)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xE872;</i></button>
                 </OverlayTrigger>
                 
                 
@@ -51,11 +51,11 @@ const Guest = ({guest}) => {
             <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
             <Modal.Title>
-                Edit Guest
+                Edit Vehicle
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <EditForm1 theGuest={guest} />
+            <EditVeh theVehicle={vehicle} />
         </Modal.Body>
         <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
@@ -67,4 +67,4 @@ const Guest = ({guest}) => {
     )
 }
 
-export default Guest;
+export default Vehicle;

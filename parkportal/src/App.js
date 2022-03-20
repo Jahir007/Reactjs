@@ -7,10 +7,11 @@ import HomePage from './pages/HomePage';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import Presence from './components/StartingPage/Presence';
-import Booking from './pages/Booking';
+import GuestBooking from './pages/GuestBooking';
 import Navbar2 from './components/Layout/Navbar2'
 import OwnerPage from './pages/OwnerPage';
-
+import SlotPage from './pages/SlotPage';
+import VehiclePage from './pages/VehiclePage';
 
 
 function App() {
@@ -35,11 +36,27 @@ function App() {
         )}
 
         {isLoggedIn && (
-          <Route path='/Booking' exact>
+          <Route path='/GuestBooking' exact>
             <Navbar2 />
-            <Booking />
+            <GuestBooking />
           </Route>
         )}
+        
+
+        {isLoggedIn && (
+          <Route path='/Slot' exact>
+            <Navbar2 />
+            <SlotPage />
+          </Route>
+        )}
+
+        {isLoggedIn && (
+          <Route path='/Vehicle' exact>
+            <Navbar2 />
+            <VehiclePage />
+          </Route>
+        )}
+
 
         {isLoggedIn && (
           <Route path='/OwnerPage'>
@@ -47,6 +64,8 @@ function App() {
             <OwnerPage />
           </Route>
         )}
+
+        
 
         {isLoggedIn && (
           <Route path='/About'>

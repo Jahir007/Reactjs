@@ -65,8 +65,8 @@ const OwnerList = () => {
                 <th>Last Name</th>
                 <th>Contact No</th>
                 <th>Email</th>
-                <th>Vehicle No</th>
-                <th>Slot No</th>
+                {/* <th>Vehicle No</th>
+                <th>Slot No</th> */}
             </tr>
         </thead>
         <tbody>

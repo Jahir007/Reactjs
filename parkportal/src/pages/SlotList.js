@@ -1,13 +1,13 @@
 import { Modal, Button, Alert} from 'react-bootstrap';
 import {useContext, useEffect, useState } from 'react';
-import {GuestContext} from '../contexts/GuestContext';
-import Guest from './Guest';
-import AddForm1 from './AddForm1';
-import Pagination1 from './Pagination1';
+import {SlotContext} from '../contexts/SlotContext';
+import Slot from './Slot';
+import AddSlot from './AddSlot';
+import SlotPagination from './SlotPagination';
 
-const GuestList = () => {
+const SlotList = () => {
 
-    const {sortedGuests} = useContext(GuestContext);
+    const {sortedSlots} = useContext(SlotContext);
 
     const [showAlert, setShowAlert] = useState(false);
 
@@ -15,10 +15,10 @@ const GuestList = () => {
     
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
-    // const handleShowAlert = () =>setShowAlert(true);
+    //const handleShowAlert = () =>setShowAlert(true);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [guestsPerPage] = useState(6)
+    const [slotsPerPage] = useState(6)
 
     const handleShowAlert = () => {
         setShowAlert(true);
@@ -33,49 +33,48 @@ const GuestList = () => {
         return () => {
             handleShowAlert();
         }
-    }, [sortedGuests])
+    }, [sortedSlots])
 
-    const indexOfLastGuest = currentPage * guestsPerPage;
-    const indexOfFirstGuest = indexOfLastGuest - guestsPerPage;
-    const currentGuests = sortedGuests.slice(indexOfFirstGuest, indexOfLastGuest);
-    const totalPagesNum = Math.ceil(sortedGuests.length / guestsPerPage);
+    const indexOfLastSlot = currentPage * slotsPerPage;
+    const indexOfFirstSlot = indexOfLastSlot - slotsPerPage;
+    const currentSlots = sortedSlots.slice(indexOfFirstSlot, indexOfLastSlot);
+    const totalPagesNum = Math.ceil(sortedSlots.length / slotsPerPage);
 
 
     return (
     <>
     <div className="table-title">
         <div className="row">
-            <div className="col-sm-6">
-                <h2>Manage <b>Guest</b></h2>
+            <div className="col-sm-6 ">
+                <h2>Manage <b>SLots</b></h2>
             </div>
-            <div className="col-sm-6">
-                <Button onClick={handleShow} className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add Guest</span></Button>					
+            <div className="col-sm-6 ">
+                <Button onClick={handleShow} className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add New Slot</span></Button>					
             </div>
         </div>
     </div>
 
     <Alert show={showAlert} variant="success">
-        Guest List Updated Succefully!
+        Slot List Updated Succefully! 
     </Alert>
 
     <table className="table table-striped table-hover">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Lc_number</th>
-                <th>duration</th>
-                <th>Slot No</th>
-                <th>Start-date</th>
-                <th>Remarks</th>
-                
+                <th>First Name</th>
+                <th>Slot Number</th>
+                <th>Owner ID</th>
+                <th>Created Date</th>
+                {/* <th>Vehicle No</th>
+                <th>Slot No</th> */}
             </tr>
         </thead>
         <tbody>
 
                 {
-                  currentGuests.map(guest => (
-                      <tr key={guest.id}>
-                        <Guest guest={guest} />
+                  currentSlots.map(slot => (
+                      <tr key={slot.id}>
+                        <Slot slot={slot} />
                     </tr>
                   ))  
                 }
@@ -84,19 +83,19 @@ const GuestList = () => {
         </tbody>
     </table>
 
-    <Pagination1 pages = {totalPagesNum}
+    <SlotPagination pages = {totalPagesNum}
                 setCurrentPage={setCurrentPage}
-                currentGuests ={currentGuests}
-                sortedGuests = {sortedGuests} />
+                currentSlots ={currentSlots}
+                sortedSlots = {sortedSlots} />
 
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
             <Modal.Title>
-                Guest Details
+                Add Slots
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <AddForm1 />
+            <AddSlot />
         </Modal.Body>
         <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
@@ -108,4 +107,4 @@ const GuestList = () => {
     )
 }
 
-export default GuestList;
+export default SlotList;

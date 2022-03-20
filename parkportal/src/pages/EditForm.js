@@ -2,8 +2,13 @@ import { Form, Button } from "react-bootstrap"
 
 import {OwnerContext} from '../contexts/OwnerContext';
 import {useContext, useState} from 'react';
+import axios from "axios";
 
 const EditForm = ({theOwner}) =>{
+
+
+    const url = "http://localhost/Reactjs/parkportal/src/Api/update.php";
+
 
     const id = theOwner.id;
 
@@ -11,17 +16,24 @@ const EditForm = ({theOwner}) =>{
     const [lastname, setLastName] = useState(theOwner.lastname);
     const [contactno, setContactNo] = useState(theOwner.contactno);
     const [email, setEmail] = useState(theOwner.email);
-    const [vehicleno, setVehicleNo] = useState(theOwner.vehicleno);
-    const [slotno, setSlotNo] = useState(theOwner.slotno);
 
 
     const {updateOwner} = useContext(OwnerContext);
 
-    const updatedOwner = {id, firstname, lastname, contactno, email, vehicleno, slotno};
+    const updatedOwner = {id, firstname, lastname, contactno, email};
 
     const handleSubmit = (e) => {
         e.preventDefault();
         updateOwner(id, updatedOwner)
+        console.log(updatedOwner);
+        axios.post(url,  {
+            id: updatedOwner.id,
+            firstname: updatedOwner.firstname,
+            lastname: updatedOwner.lastname,
+            contactno: updatedOwner.contactno,
+            email: updatedOwner.email,
+        })
+        .then(res => console.log(res.data))
     }
 
      return (
@@ -65,25 +77,6 @@ const EditForm = ({theOwner}) =>{
                     value={email}
                     onChange={(e)=> setEmail(e.target.value)}
                     required
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Control
-                    type="text"
-                    placeholder="Vehicle No"
-                    name="vehicleno"
-                    value={vehicleno}
-                    onChange={(e)=> setVehicleNo(e.target.value)}
-                    required
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Control
-                    type="text"
-                    placeholder="Slot No"
-                    name="slotno"
-                    value={slotno}
-                    onChange={(e)=> setSlotNo(e.target.value)}
                 />
             </Form.Group>
             <Button className="d-grid mx-auto" variant="success" type="submit" block>

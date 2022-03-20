@@ -4,6 +4,12 @@
   "private": true,
   "proxy": "http://localhost/Reactjs/parkportal/src/Api/insert.php",
   "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.5.1",
+    "@mui/lab": "^5.0.0-alpha.73",
+    "@mui/material": "^5.5.1",
+    "@mui/styled-engine-sc": "^5.4.2",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
@@ -15,11 +21,15 @@
     "mdb-react-ui-kit": "^2.4.0",
     "react": "^17.0.1",
     "react-bootstrap": "^2.2.0",
+    "react-bootstrap-time-picker": "^2.0.1",
     "react-dom": "^17.0.1",
+    "react-duration-picker": "^1.1.1",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-select": "^5.2.2",
+    "react-simple-timefield": "^3.2.5",
+    "styled-components": "^5.3.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

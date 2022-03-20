@@ -6,8 +6,9 @@ import Axios from 'axios' ;
 
 
 
-const AddForm = () =>{
 
+const AddForm = () =>{
+        
     const url = "http://localhost/Reactjs/parkportal/src/Api/insert.php";
 
     const {addOwner} = useContext(OwnerContext);
@@ -83,7 +84,7 @@ const AddForm = () =>{
                     required
                 />
             </Form.Group>
-            <Form.Group>
+            {/* <Form.Group>
                 <Form.Control
                     type="text"
                     placeholder="Vehicle No"
@@ -92,18 +93,11 @@ const AddForm = () =>{
                     onChange = { (e) => onInputChange(e)}
                     required
                 />
-            </Form.Group>
-            <Form.Group>
-                <Form.Control
-                    type="text"
-                    placeholder="Slot No"
-                    name="SlotNo"
-                    value={SlotNo}
-                    onChange = { (e) => onInputChange(e)}
-                    required
-
-                />
-            </Form.Group>
+            </Form.Group> */}
+            {/* <Form.Group>
+            <Select options={options} />
+            </Form.Group> */}
+            <br></br>
             <Button className="d-grid mx-auto" variant="success" type="submit" block>
                 Add New Owner
             </Button>
