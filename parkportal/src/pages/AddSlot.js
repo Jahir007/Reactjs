@@ -1,10 +1,7 @@
 import { Form, Button } from "react-bootstrap"
-
 import {SlotContext} from '../contexts/SlotContext';
 import {useContext, useState} from 'react';
 import Axios from 'axios' ;
-
-
 
 
 const AddSlot = () =>{
@@ -84,7 +81,7 @@ const AddSlot = () =>{
             </Form.Group>
             <br></br>
             <Button className="d-grid mx-auto" variant="success" type="submit" block>
-                Add New Owner
+                Add New Slot
             </Button>
         </Form>
 

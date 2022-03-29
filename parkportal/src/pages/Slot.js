@@ -6,7 +6,6 @@ import EditSlot from './EditSlot';
 
 
 
-
 const Slot = ({slot}) => {
 
     // const url = "http://localhost/Reactjs/parkportal/src/Api/insert.php";

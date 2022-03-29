@@ -17,53 +17,6 @@ emailjs.sendForm('service_cjvx6ko', 'template_3gjqon6', e.target, 'user_OrivuLJT
   return (
 
     <>
-      <div className='contact_info'>
-        <div className='container-fluid'>
-          <div className='row'>
-            <div className='col-lg-10 offset-lg-1 d-flex justify-content-between mt-5'>
-
-              {/* phone Number */}
-              <div className='contact_info_item d-flex justify-content-start align-item-center'>
-                <img className='img-fluid' src="https://img.icons8.com/office/24/000000/iphone.png" alt="phone" />
-                <div className='contact_info_content'>
-                  <div className='contact_info_title'>
-                    Phone
-                  </div>
-                  <div className='contact_info_text'>
-                    +91 111 222 111
-                  </div>
-                </div>
-              </div>
-
-              {/* email */}
-              <div className='contact_info_item d-flex justify-content-start align-item-center'>
-                <img className='img-fluid' src="https://img.icons8.com/office/24/000000/email.png" alt="phone" />
-                <div className='contact_info_content'>
-                  <div className='contact_info_title'>
-                    Email
-                  </div>
-                  <div className='contact_info_text'>
-                    ParkingPortal@gmail.com
-                  </div>
-                </div>
-              </div>
-
-              {/* address */}
-              <div className='contact_info_item d-flex justify-content-start align-item-center'>
-                <img className='img-fluid' src="https://img.icons8.com/office/24/000000/address.png" alt="phone" />
-                <div className='contact_info_content'>
-                  <div className='contact_info_title'>
-                    Address
-                  </div>
-                  <div className='contact_info_text'>
-                    Adajan, surat, gujarat-395009
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Contact Us Form */}
 

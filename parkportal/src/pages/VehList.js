@@ -2,10 +2,10 @@ import { Modal, Button, Alert} from 'react-bootstrap';
 import {useContext, useEffect, useState } from 'react';
 import {VehicleContext} from '../contexts/VehicleContext';
 import Vehicle from './Vehicle';
-import AddVeh from './AddVeh';
 import VehPagination from './VehPagination';
+import AddVehicle from './AddVeh';
 
-const VehList = () => {
+const VehicleList = () => {
 
     const {sortedVehicles} = useContext(VehicleContext);
 
@@ -15,7 +15,7 @@ const VehList = () => {
     
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
-    // const handleShowAlert = () =>setShowAlert(true);
+    //const handleShowAlert = () =>setShowAlert(true);
 
     const [currentPage, setCurrentPage] = useState(1);
     const [vehiclesPerPage] = useState(6)
@@ -45,28 +45,28 @@ const VehList = () => {
     <>
     <div className="table-title">
         <div className="row">
-            <div className="col-sm-6">
-                <h2>Manage <b>Vehicle</b></h2>
+            <div className="col-sm-6 ">
+                <h2>Manage <b>Vehicles</b></h2>
             </div>
-            <div className="col-sm-6">
-                <Button onClick={handleShow} className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add vehicle</span></Button>					
+            <div className="col-sm-6 ">
+                <Button onClick={handleShow} className="btn btn-success" data-toggle="modal"><i className="material-icons">&#xE147;</i> <span>Add New Vehicle</span></Button>					
             </div>
         </div>
     </div>
 
     <Alert show={showAlert} variant="success">
-        vehicle List Updated Succefully!
+        Vehicle List Updated Succefully! 
     </Alert>
 
     <table className="table table-striped table-hover">
         <thead>
             <tr>
                 <th>Category ID</th>
-                <th>License No</th>
-                <th>description</th>
+                <th>Lc Number</th>
+                <th>Description</th>
                 <th>Photo</th>
                 <th>Owner ID</th>
-                <th>Date</th>
+                <th>Created Time</th>
                 
             </tr>
         </thead>
@@ -92,11 +92,11 @@ const VehList = () => {
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
             <Modal.Title>
-                Vehcile Details
+                Add Vehicles
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <AddVeh />
+            <AddVehicle />
         </Modal.Body>
         <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
@@ -108,4 +108,4 @@ const VehList = () => {
     )
 }
 
-export default VehList;
+export default VehicleList;

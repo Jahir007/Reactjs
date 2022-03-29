@@ -6,7 +6,7 @@ export const GuestContext = createContext()
 
 const GuestContextProvider  = (props) => {
 
-    const url = "http://localhost/Reactjs/parkportal/src/Api/guestdelete.php";
+    const url = "http://localhost/parkportal/src/Api/guestdelete.php";
 
     const [guests, setGuests] = useState([]);
 
@@ -17,7 +17,6 @@ const GuestContextProvider  = (props) => {
     useEffect(() => {
         localStorage.setItem('guests', JSON.stringify(guests));
     })
-    
     
     
     const sortedGuests = guests.sort((a,b)=>(a.firstname < b.firstname ? -1 : 1));

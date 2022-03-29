@@ -4,8 +4,6 @@ import EditForm1 from './EditForm1'
 import {GuestContext} from '../contexts/GuestContext';
 
 
-
-
 const Guest = ({guest}) => {
 
     const {deleteGuest} = useContext(GuestContext)

@@ -3,9 +3,6 @@
 // phpinfo();
 require_once 'config.php';
 
-
-
-
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Max-Age: 1000");
@@ -34,8 +31,6 @@ $_POST=json_decode($_POST,true);
 if (is_array($_POST) && sizeof($_POST) > 0) {
 
    
-  
-
 
 $firstname = $_POST['firstname'];
 $lcno = $_POST["lcno"];

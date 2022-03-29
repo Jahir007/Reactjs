@@ -4,8 +4,6 @@ import EditVeh from './EditVeh'
 import {VehicleContext} from '../contexts/VehicleContext';
 
 
-
-
 const Vehicle = ({vehicle}) => {
 
     const {deleteVehicle} = useContext(VehicleContext)

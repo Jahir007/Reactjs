@@ -1,5 +1,4 @@
 import { Form, Button } from "react-bootstrap"
-
 import {OwnerContext} from '../contexts/OwnerContext';
 import {useContext, useState} from 'react';
 import axios from "axios";
@@ -11,7 +10,6 @@ const EditForm = ({theOwner}) =>{
 
 
     const id = theOwner.id;
-
     const [firstname, setFirstName] = useState(theOwner.firstname);
     const [lastname, setLastName] = useState(theOwner.lastname);
     const [contactno, setContactNo] = useState(theOwner.contactno);

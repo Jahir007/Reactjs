@@ -15,9 +15,8 @@ const VehicleContextProvider  = (props) => {
     },[])
     
     useEffect(() => {
-        localStorage.setItem('vehicle', JSON.stringify(vehicles));
+        localStorage.setItem('vehicles', JSON.stringify(vehicles));
     })
-    
     
     
     const sortedVehicles = vehicles.sort((a,b)=>(a.categoryid < b.categoryid ? -1 : 1));

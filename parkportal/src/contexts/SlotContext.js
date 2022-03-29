@@ -6,7 +6,7 @@ export const SlotContext = createContext()
 
 const SlotContextProvider  = (props) => {
 
-    const url = "http://localhost/Reactjs/parkportal/src/Api/slotdelete.php";
+    const url = "http://localhost/parkportal/src/Api/slotdelete.php";
 
     const [slots, setSlots] = useState([]);
 

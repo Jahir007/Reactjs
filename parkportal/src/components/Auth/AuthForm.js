@@ -21,7 +21,7 @@ const AuthForm = () => {
     setAlert({
       show,
       type,
-      message
+      message   
     });
   };
 

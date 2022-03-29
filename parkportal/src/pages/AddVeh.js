@@ -1,24 +1,24 @@
 import { Form, Button } from "react-bootstrap"
-
 import {VehicleContext} from '../contexts/VehicleContext';
 import {useContext, useState} from 'react';
 import Axios from 'axios' ;
 
 
 
-
-const AddForm = () =>{
+const AddVehicle = () =>{
         
-    const url = "http://localhost/Reactjs/parkportal/src/Api/vehinsert.php";
+    const url = "http://localhost/Reactjs/parkportal/src/Api/vehcreate.php";
 
     const {addVehicle} = useContext(VehicleContext);
 
     const [newVehicle, setNewVehicle] = useState({
-        categoryid: '', lcnumber: '', description: '', photo: '', ownerid: '', createdt: ''
+        categoryid:"", lcnumber:"", description:"", photo:"", ownerid:"", createdt:""
     });
 
     const onInputChange = (e) => {
         setNewVehicle({...newVehicle,[e.target.name]: e.target.value})
+        // setNewOwner(newOwner);
+        //  console.log(newOwner);
     }
 
     const {categoryid, lcnumber, description, photo, ownerid, createdt} = newVehicle;
@@ -34,7 +34,7 @@ const AddForm = () =>{
             description: newVehicle.description,
             photo: newVehicle.photo,
             ownerid: newVehicle.ownerid,
-            createdt: newVehicle.createdt
+            createdt: newVehicle.createdt    
         })
         .then(res => console.log(res.addVehicle))
     }
@@ -44,8 +44,8 @@ const AddForm = () =>{
         <Form onSubmit={handleSubmit}>
             <Form.Group>
                 <Form.Control
-                    type="text"
-                    placeholder="Category ID"
+                    type="int"
+                    placeholder="category Id"
                     name="categoryid"
                     value={categoryid}
                     onChange = { (e) => onInputChange(e)}
@@ -54,8 +54,8 @@ const AddForm = () =>{
             </Form.Group>
             <Form.Group>
                 <Form.Control
-                    type="text"
-                    placeholder="License Number"
+                    type="varchar"
+                    placeholder="Licence number"
                     name="lcnumber"
                     value={lcnumber}
                     onChange = { (e) => onInputChange(e)}
@@ -75,8 +75,10 @@ const AddForm = () =>{
             <Form.Group>
                 <Form.Control
                     type="file"
-                    placeholder="Photo"
+                    placeholder="photo*"
                     name="photo"
+                    accept="image/*" 
+                    multiple={false}
                     value={photo}
                     onChange = { (e) => onInputChange(e)}
                     required
@@ -84,22 +86,22 @@ const AddForm = () =>{
             </Form.Group>
             <Form.Group>
                 <Form.Control
-                    type="text"
-                    placeholder="Owner ID"
+                    type="int"
+                    placeholder="ownerid"
                     name="ownerid"
                     value={ownerid}
                     onChange = { (e) => onInputChange(e)}
                     required
                 />
             </Form.Group>
-            <Form.Group controlId="date" bsSize="large">
+            <Form.Group>
                 <Form.Control
                     type="date"
-                    style={{ width: '100%' }}
-                    placeholder="Start Date"
+                    placeholder="createdt"
                     name="createdt"
                     value={createdt}
-                    onChange={(e) => onInputChange(e)}
+                    onChange = { (e) => onInputChange(e)}
+                    required
                 />
             </Form.Group>
             <br></br>
@@ -111,4 +113,4 @@ const AddForm = () =>{
      )
 }
 
-export default AddForm;
+export default AddVehicle;
