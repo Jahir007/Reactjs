@@ -41,6 +41,9 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/ContactUs">Contact Us</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/Payment">pay</Link>
+                        </li>
                     </ul>
 					
                     <div className='d-md-flex justify-content '>

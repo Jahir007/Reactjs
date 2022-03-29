@@ -12,6 +12,7 @@ import Navbar2 from './components/Layout/Navbar2'
 import OwnerPage from './pages/OwnerPage';
 import SlotPage from './pages/SlotPage';
 import VehiclePage from './pages/VehiclePage';
+import Payment from './pages/Payment';
 
 
 function App() {
@@ -71,6 +72,13 @@ function App() {
           <Route path='/About'>
             <Navbar2 />
             <About />
+          </Route>
+        )}
+
+        {isLoggedIn && (
+          <Route path='/payment'>
+            <Navbar2 />
+            <Payment />
           </Route>
         )}
 
