@@ -6,7 +6,7 @@ export const OwnerContext = createContext()
 
 const OwnerContextProvider  = (props) => {
 
-    const url = "http://localhost/parkportal/src/Api/delete.php";
+    const url = "http://localhost/Reactjs/parkportal/src/Api/delete.php";
 
     const [owners, setOwners] = useState([]);
 

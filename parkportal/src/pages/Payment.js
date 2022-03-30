@@ -72,11 +72,11 @@ export default class App extends React.Component {
     moveToTicketPage = e => {
         e.preventDefault()
         localStorage.setItem('paymentData', JSON.stringify(this.state.token))
-        window.location.href = '/getTicket'
+        // window.location.href = '/getTicket'
     }
 
-    renderNamesOfPassenger = () => {
-        let passArray = localStorage.getItem('nameData')
+    renderNamesOfGuest = () => {
+        let passArray = localStorage.getItem('firstname')
         if (passArray) {
             let nameArray = JSON.parse(passArray)
             return nameArray.map((name, idx) => {
@@ -86,7 +86,7 @@ export default class App extends React.Component {
     }
 
     renderSeatNumbers = () => {
-        let seatArray = localStorage.getItem('reservedSeats')
+        let seatArray = localStorage.getItem('slotno')
         if (seatArray) {
             let seaArr = JSON.parse(seatArray)
             return seaArr.map((seat, idx) => {
@@ -193,7 +193,7 @@ export default class App extends React.Component {
                             </form>{' '}
                         </div>{' '}
                     </div>{' '}
-                    <div className='columnTwo'>
+                    {/* <div className='columnTwo'>
                         <h3> Unique Travels </h3>{' '}
                         <div>
                             <p> BOOKING DETAILS </p>{' '}
@@ -202,7 +202,7 @@ export default class App extends React.Component {
                                     <p className='hdng' > Username </p> <hr className='hr3' />
                                     <p className='hdng' > Date </p> <p className='hdng'> From </p>
                                     <p className='hdng' > To </p> <hr className='hr3' />
-                                    <p className='hdng' > Passengers </p>{' '} {this.renderNamesOfPassenger()} <hr className='hr3' />
+                                    <p className='hdng' > Passengers </p>{' '} {this.renderNamesOfGuest()} <hr className='hr3' />
                                     <p className='hdng' > Ticket price </p>{' '}
                                     <p className='hdng' > Tax </p>{' '}
                                     <p className='hdng' > Toal Sum </p>{' '}
@@ -221,7 +221,7 @@ export default class App extends React.Component {
                                 </div>{' '}
                             </div>{' '}
                         </div>{' '}
-                    </div>{' '}
+                    </div>{' '} */}
                 </div>{' '}
             </div>
         )

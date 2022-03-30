@@ -1,7 +1,7 @@
 .paym {
     /* border:1px solid white; */
     height: auto;
-    background-color: #00abeeb0;
+    background-color: #65777eb0;
 }
 
 .App-payment {
@@ -12,13 +12,13 @@
     background-color: rgba(255, 255, 255, 0.603);
     border-radius: 5px;
     margin-bottom:20px;
-    padding-bottom:30px;
+    padding-bottom:0px;
 }
 
 .credit-form {
-    margin-top: 31px;
+    margin: auto;
     max-width: 400px;
-    margin-right: 19px;
+    margin: auto;
 }
 
 .actionButton {
@@ -34,11 +34,11 @@
 }
 
 .cl1 {
-    float: left;
+    float: right;
     width: 60%;
 }
 
-.columnTwo {
+/* .columnTwo {
     float: right;
     width: 54%;
     padding: 10px;
@@ -51,7 +51,7 @@
     margin-top: 20px;
     border-radius: 5px;
     margin-bottom:20px;
-}
+} */
 
 .btCustom {
     width: 62%;
