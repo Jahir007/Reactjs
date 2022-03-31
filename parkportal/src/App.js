@@ -13,6 +13,7 @@ import OwnerPage from './pages/OwnerPage';
 import SlotPage from './pages/SlotPage';
 import VehiclePage from './pages/VehiclePage';
 import Payment from './pages/Payment';
+import Sb from './pages/Sb';
 
 
 function App() {
@@ -86,6 +87,13 @@ function App() {
           <Route path='/ContactUs'>
             <Navbar2 />
             <ContactUs />
+          </Route>
+        )}
+
+        {isLoggedIn && (
+          <Route path='/Sb'>
+            <Navbar2 />
+            <Sb />
           </Route>
         )}
 

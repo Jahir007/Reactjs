@@ -44,14 +44,14 @@ const Guest = ({guest}) => {
                     }>
                     <button onClick={() => deleteGuest(guest.firstname)}  className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons">&#xE872;</i></button>
                 </OverlayTrigger>
-                <OverlayTrigger
+                {/* <OverlayTrigger
                     overlay={
                         <Tooltip id={`tooltip-top`}>
                             Payment
                         </Tooltip>
                     }>
                     <button type="button" className="btn text-success btn-act" data-toggle="modal" onClick={()=> window.open("http://localhost:3000/Payment", "_self")}><i className="material-icons">&#xE8D2;</i></button>
-                </OverlayTrigger>        
+                </OverlayTrigger>         */}
                 
             </td>
 
