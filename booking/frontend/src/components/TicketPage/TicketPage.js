@@ -14,16 +14,16 @@ export default function TicketPage({ history }) {
         e.preventDefault()
         history.push('/routes')
     }
-    const getLocationData = () => {
-        let from = localStorage.getItem("start")
-        let to = localStorage.getItem("destination")
-        return (
-            <div>
-                <p>From:  {from}</p>
-                <p>To:  {to}</p>
-            </div>
-        )
-    }
+    // const getLocationData = () => {
+    //     let from = localStorage.getItem("start")
+    //     let to = localStorage.getItem("destination")
+    //     return (
+    //         <div>
+    //             <p>From:  {from}</p>
+    //             <p>To:  {to}</p>
+    //         </div>
+    //     )
+    // }
     const getPassengerName = () => {
         let nameArray = localStorage.getItem("nameData")
         let names = JSON.parse(nameArray)
@@ -54,10 +54,10 @@ export default function TicketPage({ history }) {
             </p>
         )
     }
-    const getDateValue = () => {
-        let dat = localStorage.getItem("date")
-        return <p>On: {dat}, 10 AM (Hourly commute)</p>
-    }
+    // const getDateValue = () => {
+    //     let dat = localStorage.getItem("date")
+    //     return <p>On: {dat}, 10 AM (Hourly commute)</p>
+    // }
     return (
 
         <div className="container">
@@ -92,9 +92,9 @@ export default function TicketPage({ history }) {
                     </div>
                     <div className="ticket__body">
                         <section className="ticket__section">
-                            {getLocationData()}
+                            {/* {getLocationData()} */}
                             {getSeatNumbers()}
-                            <p>Your seats are together <span>{getDateValue()}</span></p>
+                            {/* <p>Your seats are together <span>{getDateValue()}</span></p> */}
                         </section>
                         <section className="ticket__section">
                             <h3>Passenger Names</h3>
