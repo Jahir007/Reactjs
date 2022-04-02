@@ -2,18 +2,23 @@ import React from "react";
 import Navbar from "../../../layouts/frontend/Navbar";
 import { useState } from "react";
 import axios from "axios";
+import swal from 'sweetalert';
+import { useHistory } from "react-router-dom";
 
 
 const Register = () => {
+
+    const history = useHistory();
 
     const [registerInput, setRegister] = useState({
         name: "",
         email: "",
         password: "",
+        error_list: [],
     });
 
     const handleInput = (e) => {
-        e.presist();
+        e.persist();
         setRegister({
             ...registerInput,
             [e.target.name]: e.target.value
@@ -30,11 +35,24 @@ const Register = () => {
             password: registerInput.password
         }
 
+        axios.get('/sanctum/csrf-cookie').then(response => {
+            
+            axios.post("http://localhost:8000/api/register", data).then(res => {
 
-        axios.post("/api/register", data).then(res => {
-            console.log(res);
-        }
-        )
+                if(res.data.status === 200) 
+                {
+                    localStorage.setItem('auth_token', res.data.token);
+                    localStorage.setItem('auth_name', res.data.username);
+                    swal("Success", res.data.message, "success");
+                    history.push('/');
+                }
+                else
+                {
+                    setRegister({ ...registerInput,error_list: res.data.validation_errors });
+                }
+
+            });
+        });
     }
 
     return (
@@ -51,22 +69,25 @@ const Register = () => {
                                 <form onSubmit={registerSubmit}>
                                     <div className="form-group mb-3">
                                         <label> Full name</label>
-                                        <input type="text" name='name' onChange={handleInput} className="form-control" value={registerInput.name} />
+                                        <input type="" name='name' onChange={handleInput} value={registerInput.name} className="form-control"  />
+                                        <span> {registerInput.error_list.name} </span>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label> Email ID</label>
-                                        <input type="email" name='email' onChange={handleInput} className="form-control" value={registerInput.email} />
+                                        <input type="" name='email' onChange={handleInput} className="form-control" value={registerInput.email} />
+                                        <span> {registerInput.error_list.email} </span>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label> Password</label>
-                                        <input type="password" name='password' onChange={handleInput}className="form-control" value={registerInput.password} />
+                                        <input type="" name='password' onChange={handleInput}className="form-control" value={registerInput.password} />
+                                        <span> {registerInput.error_list.password} </span>
                                     </div>
                                     {/* <div className="form-group mb-3">
                                         <label>Confirm Password</label>
                                         <input type="password" name='confirm_password' onChange={handleInput} className="form-control" value={registerInput.confirm_password} />
                                     </div> */}
                                     <div className="form-group mb-3">
-                                        <button type="" className="btn btn-primary"> Submit</button>
+                                        <button type="submit" className="btn btn-primary"> Submit</button>
                                     </div>
                                 </form>
                             </div>
