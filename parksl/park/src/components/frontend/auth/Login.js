@@ -24,7 +24,7 @@ const Login = () => {
                                     <input type="password" name='password' className="form-control" value='' />
                                 </div>
                                 <div className="form-group mb-3">
-                                    <button type="" className="btn btn-primary"> Login</button>
+                                    <button type="submit" className="btn btn-primary"> Login</button>
                                 </div>
                             </form>
                         </div>
