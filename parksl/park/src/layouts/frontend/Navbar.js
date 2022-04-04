@@ -1,7 +1,49 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import swal from 'sweetalert';
+import { useHistory } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const history = useHistory();
+
+    const logoutSubmit = (e) => {
+        e.preventDefault();
+
+        axios.post('/api/logout').then(res => {
+            if (res.data.status === 200) {
+
+                localStorage.removeItem("auth_token");
+                localStorage.removeItem('auth_name');
+                swal("Sucess", res.data.message, "success");
+                history.push('/')
+            }
+            });
+    }
+
+    var AuthButton = '';
+    if (!localStorage.getItem('auth_token')) {
+        AuthButton = (
+            <ul className='navbar-nav'>
+                <li className="nav-item">
+                    <Link className="nav-link active" aria-current="page" to="/login" >Login</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link active" aria-current="page" to="/register" >Register</Link>
+                </li>
+            </ul>
+        )
+    }
+    else {
+        AuthButton = (
+            <li className="nav-item">
+                <button type="button" onClick={logoutSubmit} className="nav-link btn btn-danger btn-sm text-white" >Logout</button>
+            </li>
+        )
+    }
+
+
     return (
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
@@ -20,13 +62,8 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <ul className="navbar-nav ms-auto" >
-                    <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/login" >Login</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/register" >Register</Link>
-                        </li>
-                        </ul>
+                        {AuthButton}
+                    </ul>
                 </div>
             </div>
         </nav>
