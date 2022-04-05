@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
-
+use App\Http\Controllers\API\OwnerController;
 
 
 Route::post('register', [AuthController::class, 'register']);
@@ -15,7 +15,15 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
         return response()->json(['message' => 'You are in', 'status' => 200],200);
     });
 
+
+    //Owner
+    Route::get('/view-owner', [OwnerController::class, 'index']);
+    Route::post('store-owner', [OwnerController::class, 'store']);
+    Route::get('edit-owner/{id}', [OwnerController::class, 'edit']);
+    Route::put('update-owner/{id}', [OwnerController::class, 'update']);
+
 });
+
 
 Route::middleware(['auth:sanctum'])->group(function () {
 

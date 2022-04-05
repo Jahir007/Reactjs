@@ -17,6 +17,10 @@ const Sidebar = () => {
                     <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                     Owner
                 </Link>
+                <Link className="nav-link" to="/admin/view-owner">
+                    <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                    View Owner
+                </Link>
                 <Link className="nav-link" to="/admin/profile">
                     <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                     profile
