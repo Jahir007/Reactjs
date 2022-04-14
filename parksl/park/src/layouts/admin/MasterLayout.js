@@ -18,7 +18,7 @@ const MasterLayout = () => {
                 <Navbar />
                 <div id="layoutSidenav">
 
-                    <div id="layoutsidenav_nav" >
+                    <div id="layoutSidenav_nav">
                         <Sidebar />
                     </div>
                     <div id="layoutSidenav_content">
@@ -28,16 +28,16 @@ const MasterLayout = () => {
                                 {routes.map((route, idx) => {
                                     return (
                                         route.component && (
-                                        <Route
-                                            key={idx}
-                                            path={route.path}
-                                            exact={route.exact}
-                                            name={route.name}
-                                            render={(props) => (
-                                                <route.component {...props} />
-                                            )}
-                                        />
-                                    )
+                                            <Route
+                                                key={idx}
+                                                path={route.path}
+                                                exact={route.exact}
+                                                name={route.name}
+                                                render={(props) => (
+                                                    <route.component {...props} />
+                                                )}
+                                            />
+                                        )
                                     )
                                 })}
 

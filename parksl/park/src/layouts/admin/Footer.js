@@ -1,20 +1,22 @@
-import React from "react";
-import {Link} from 'react-router-dom'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 
 const Footer = () => {
-
     return (
-        <footer className="bg-dark text-white fixed-bottom">
-    
-    <div className="text-center p-3 ">
-      © 2022 Copyright :
-      <Link className="text-white" to="/">  Parking Portal</Link>
-    </div>
-   
-  </footer>
-    );
-
+        <footer className="py-4 bg-light mt-auto">
+            <div className="container-fluid px-4">
+                <div className="d-flex align-items-center justify-content-between small">
+                    <div className="text-muted">Copyright &copy; Your Website 2022</div>
+                    <div>
+                        <Link to="#">Privacy Policy</Link>
+                        &middot;
+                        <Link to="#">Terms &amp; Conditions</Link>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    )
 }
 
 export default Footer;

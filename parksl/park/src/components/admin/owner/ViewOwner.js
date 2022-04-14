@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 
 const ViewOwner = () => {
@@ -20,6 +21,30 @@ const ViewOwner = () => {
                 setLoading(false);
             });
     },[]);
+
+
+    const deleteOwner = (e, id) => {
+        e.preventDefault();
+
+        const thisClick = e.currentTarget;
+        thisClick.innerText = 'Deleting...';
+
+        axios.delete(`/api/delete-owner/${id}`).then(res => {
+            if(res.status === 200)
+            {
+               swal("Success!", res.data.message, "success");
+               thisClick.closest('tr').remove();
+            }
+            else if (res.data.status === 404)
+            {
+                thisClick.innerText = 'Deleting...';
+            }
+        });
+    
+    }
+
+
+
 
     var viewowner_HTML_TABLE = "";
 
@@ -43,7 +68,7 @@ const ViewOwner = () => {
                         <Link to={`edit-owner/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
                     </td>
                     <td>
-                        <button type="button" className="btn btn-danger btn-sm">Delete</button>
+                        <button type="button"  onClick={ (e)=> deleteOwner(e, item.id)}  className="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>
             )

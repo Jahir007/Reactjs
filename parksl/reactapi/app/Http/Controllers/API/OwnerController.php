@@ -107,7 +107,7 @@ class OwnerController extends Controller
                 $owner->save();
                 return response()->json([
                     'status' => 200,
-                    'message' => 'Owner added successfully',
+                    'message' => 'Owner update successfully',
                     ]);
                 }
             
@@ -120,5 +120,27 @@ class OwnerController extends Controller
                 }
             }
         }
+
+       
+    public function destroy($id)
+    {
+        $owner = Owner::find($id);
+        if($owner)
+        {
+            $owner->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Owner deleted successfully'
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Owner not found'
+            ]);
+        }
     }
+
+}
 

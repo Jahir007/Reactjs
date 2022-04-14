@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 class Owner extends Model
 {
     use HasFactory;
-    protected $table = 'owner';
+    protected $table = 'tbl_owner';
     protected $fillable = [
         'firstname',
         'lastname',
