@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Guest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -18,4 +19,12 @@ class Slottrans extends Model
         'start_date_time',
         'end_date_time',
     ];
+
+
+    protected $with = ['guest'];
+    public function guest()
+    {
+        return $this->belongsTo(Guest::class, 'slot_id', 'id');
+    }
+
 }

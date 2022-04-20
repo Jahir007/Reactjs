@@ -8,10 +8,15 @@ use App\Http\Controllers\API\GuestController;
 use App\Http\Controllers\API\SlotController;
 use App\Http\Controllers\API\VehicleController;
 use App\Http\Controllers\API\SlottransController;
-
+use App\Http\Controllers\API\FrontendController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+
+
+//getguest for booking in navbar
+Route::get('getGuest', [FrontendController::class, 'guest']);
+Route::get('fetchGuest/{slot_id}', [FrontendController::class, 'guest']);
 
 Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 
