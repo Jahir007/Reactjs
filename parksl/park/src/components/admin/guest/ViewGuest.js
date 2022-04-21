@@ -8,17 +8,20 @@ import swal from 'sweetalert';
 const ViewGuest = () => {
 
     const [loading, setLoading] = useState(true);
-    const [guestlist, setGuestList] = useState([]);
+    // const [guestlist, setGuestList] = useState([]);
+    const [viewGuest, setGuest] = useState([])
 
         useEffect(() => {
+
+            document.title = "View Guest";
 
             axios.get('api/view-guest').then(res => {
                 // console.log(res.data.guest);
                 if(res.status === 200)
                 {
-                    setGuestList(res.data.guest);
+                    setGuest(res.data.guest);
+                    setLoading(false);
                 }
-                setLoading(false);
             });
     },[]);
 
@@ -46,24 +49,26 @@ const ViewGuest = () => {
 
 
 
-    var viewguest_HTML_TABLE = "";
+    var display_Guestdata = "";
 
     if(loading)
     {
-        return <h4>Loading Guest....</h4>
+        return <h4>Loading View Guest....</h4>
     }
     else
     {
-        viewguest_HTML_TABLE = 
-        guestlist.map((item) => {
+        display_Guestdata = 
+        viewGuest.map((item) => {
             return (
                 <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.guest_name}</td>
                     <td>{item.lc_number}</td>
-                    <td>{item.duration}</td>
+                    <td><img src={`http://localhost:8000/${item.image}`} width="60px" alt={item.image} /></td>
+                    <td>{item.duration} hours</td>
                     <td>{item.slot_id}</td>
                     <td>{item.start_date}</td>
+                    <td>Rs. {item.charge}</td>
                     <td>{item.remarks}</td>
                     <td>
                         <Link to={`edit-guest/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
@@ -92,14 +97,18 @@ const ViewGuest = () => {
                                 <th>ID</th>
                                 <th>Guest Name</th>
                                 <th>License No</th>
+                                <th>Image</th>
                                 <th>Duration</th>
                                 <th>Slot ID</th>
                                 <th>Start Date</th>
                                 <th>Remarks</th>
+                                <th>Charge</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {viewguest_HTML_TABLE}
+                            {display_Guestdata}
                         </tbody>
                     </table>
                 </div>            

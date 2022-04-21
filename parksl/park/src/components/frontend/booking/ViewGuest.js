@@ -43,7 +43,10 @@ const ViewGuest = () => {
                     <div className="card">
                         <div className="card-body">
                         <Link to={`booking/${item.slot_id}`}>
-                            <h5 className="card-title">{item.guest_name}</h5>
+                            <div className="card-title"></div>
+                            <div className="card-text bg-light">
+                                <h5>Guest Details</h5>
+                            </div>
                             {/* <h5 className="card-title">{item.slot_id}</h5> */}
                         </Link>    
                         </div>

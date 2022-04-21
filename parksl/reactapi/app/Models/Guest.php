@@ -14,8 +14,10 @@ class Guest extends Model
     protected $fillable = [
         'guest_name',
         'lc_number',
+        'image',
         'duration',
         'slot_id',
         'start_date',
+        'charge',
     ];
 }

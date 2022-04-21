@@ -4,49 +4,53 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Slottrans;
 use App\Models\Guest;
+
 
 class FrontendController extends Controller
 {
-    public function guest()
+    
+    public function slottrans()
     {
-        $guest = Guest::where('status','0')->get();
+        $slottrans = Slottrans::where('status', '=', '0')->get();
         return response()->json([
             'status' => 200,
-            'guest' => $guest
+            'slottrans' => $slottrans,
         ]);
     }
 
-
-    public function slottrans($slot_id)
+    public function guest($slug)
     {
-        $guest = Guest::where('slot_id',$slot_id)->where('status','0')->First();
-        if($guest)
+        $slottrans = Slottrans::where('slug', $slug)->where('status', '0')->first();
+        if($slottrans)
         {
-            $guest = Guest::where('slot_id',$guest->slot_id)->where('status','0')->get();
+            $guest = Guest::where('type_id', $slottrans->id)->where('status', '0')->get();
             if($guest)
             {
                 return response()->json([
                     'status' => 200,
-                    'guest' => $guest,
+                    'guest_data' => [
+                        'guest' => $guest,
+                        'slottrans' => $slottrans,
+                    ],
                 ]);
             }
             else
             {
                 return response()->json([
-                    'status' => 404,
-                    'message' => 'No data found'
+                    'status' => 400,
+                    'message' => 'No guest Available',
                 ]);
             }
-        }  
+        }
         else
         {
             return response()->json([
                 'status' => 404,
-                'message' => 'Slot not found'
+                'message' => 'Guest not found',
             ]);
-        }  
+        }
     }
-
 
 }

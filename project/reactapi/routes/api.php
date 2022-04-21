@@ -14,9 +14,9 @@ Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 
-//getguest for booking in navbar
-Route::get('getGuest', [FrontendController::class, 'guest']);
-Route::get('fetchGuest/{slot_id}', [FrontendController::class, 'guest']);
+//getslottrans for booking in navbar
+Route::get('getSlottrans', [FrontendController::class, 'slottrans']);
+Route::get('fetchguest/{slug}', [FrontendController::class, 'guest']);
 
 Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 
@@ -35,9 +35,9 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     //Guest
     Route::get('/view-guest', [GuestController::class, 'index']);
     Route::post('store-guest', [GuestController::class, 'store']);
-    // Route::get('edit-guest/{id}', [GuestController::class, 'edit']);
-    // Route::put('update-guest/{id}', [GuestController::class, 'update']);
-    // Route::delete('delete-guest/{id}', [GuestController::class, 'destroy']);
+    Route::get('edit-guest/{id}', [GuestController::class, 'edit']);
+    Route::post('update-guest/{id}', [GuestController::class, 'update']);
+    Route::delete('delete-guest/{id}', [GuestController::class, 'destroy']);
 
     //Slot
     Route::get('/view-slot', [SlotController::class, 'index']);

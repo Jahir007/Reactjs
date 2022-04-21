@@ -106,7 +106,7 @@ const AddGuest = () => {
                                     {
                                         slottranslist.map((item) => {
                                             return (
-                                                <option value={item.id} key={item.id}>{item.typee_id}</option>
+                                                <option value={item.id} key={item.id}>{item.type_id}</option>
                                             )
                                         })
                                     }

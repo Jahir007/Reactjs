@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-// import swal from 'sweetalert';
+import swal from 'sweetalert';
 
 
 const ViewGuest = () => {
@@ -13,6 +13,10 @@ const ViewGuest = () => {
 
 
     useEffect(() => {
+
+
+        document.title = "View Guest";
+
         axios.get('/api/view-guest').then(res => {
            if (res.data.status === 200)
               {
@@ -22,6 +26,27 @@ const ViewGuest = () => {
         });
 
     }, []);
+
+
+    const deleteGuest = (e, id) => {
+        e.preventDefault();
+        
+        const thisClick = e.currentTarget;
+        thisClick.innerText = 'Deleting...';
+        
+        axios.delete(`/api/delete-guest/${id}`).then(res => {
+            if(res.status === 200)
+            {
+                swal("Success!", res.data.message, "success");
+                thisClick.closest('tr').remove();
+            }
+            else if (res.data.status === 404)
+            {
+                thisClick.innerText = 'Deleting...';
+            }
+        });
+
+    }
 
     var display_Guestdata = "";
 
@@ -35,15 +60,18 @@ const ViewGuest = () => {
             return (
                 <tr key={item.id}>
                     <td>{item.id}</td>
-                    <td>{item.type_id}</td>
+                     {/* <td>{item.type_id}</td> */}
                     <td>{item.guest_name}</td>
                     <td>{item.lc_number}</td>
                     <td><img src={`http://localhost:8000/${item.image}`} width="60px" alt={item.lc_number} /></td>
                     <td>{item.duration} hours</td>
                     <td>{item.slot_id}</td>
+                    <td>{item.start_date}</td>
                     <td>{item.charge}</td>
-                    <td><Link to="edit-product" className="btn btn-success btn-sm">Edit</Link></td>
-                    <td><button type="button" to="delete-product" className="btn btn-danger btn-sm">Delete</button></td>
+                    <td>
+                        <Link to={`edit-guest/${item.id}`} className="btn btn-success btn-sm">Edit</Link>
+                    </td>
+                    <td><button type="button" onClick={ (e)=> deleteGuest(e, item.id)}  className="btn btn-danger btn-sm">Delete</button></td>
                 </tr>
             )
         });
@@ -63,12 +91,13 @@ const ViewGuest = () => {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Type</th>
+                                 {/* <th>Type</th> */}
                                 <th>Name</th>
                                 <th>License No</th>
                                 <th>Image</th>
                                 <th>Duration</th>
                                 <th>Slot ID</th>
+                                <th>Start Date</th>
                                 <th>Charge</th>
                                 <th>Edit</th>
                                 <th>Delete</th>

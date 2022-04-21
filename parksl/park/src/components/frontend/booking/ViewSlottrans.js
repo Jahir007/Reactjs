@@ -65,6 +65,9 @@ const ViewSlottrans = (props) => {
                             <div className="card"> Slot :{item.slot_id}</div>
                             <div className="card"> LICENSE : {item.lc_number}</div>
                             <div className="card"> Duration : {item.duration}</div>
+                        </Link>
+                        <Link to="">
+                        <img src={`http://localhost:8000/${item.image}`} className="w-100" alt={item.image} />
                         </Link>    
                         </div>
                     </div>

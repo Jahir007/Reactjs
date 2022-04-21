@@ -5,60 +5,74 @@ import swal from 'sweetalert';
 
 const Guest = () => {
 
-
+   
     const [guestInput, setGuest] = useState({
         guest_name: '',
         lc_number: '',
+        image: '',
         duration: '',
         slot_id: '',
         start_date: '',
+        charge: '',
         remarks: '',
         error_list: [],
     });
+
+    const [picture, setPicture] = useState([]);
+    const [errorlist, setError] = useState([]);
+        
 
     const handleInput = (e) => {
         e.persist();
         setGuest({...guestInput, [e.target.name]:e.target.value});
     }
 
+    const handleImage = (e) => {
+        setPicture({ image: e.target.files[0] });
+    }
+
     
     const submitGuest = (e) => {
         e.preventDefault();
 
-        const data = {
-            guest_name: guestInput.guest_name,
-            lc_number: guestInput.lc_number,
-            duration: guestInput.duration,
-            slot_id: guestInput.slot_id,
-            start_date: guestInput.start_date,
-            remarks: guestInput.remarks,
-        }
+        const formData = new FormData();
+    
+        formData.append('guest_name', guestInput.guest_name);
+        formData.append('lc_number', guestInput.lc_number);
+        formData.append('image', picture.image);
+        formData.append('duration', guestInput.duration);
+        formData.append('slot_id', guestInput.slot_id);
+        formData.append('start_date', guestInput.start_date);
+        formData.append('charge', guestInput.charge);
+        formData.append('remarks', guestInput.remarks);
+        
 
-        axios.post(`api/store-guest`, data).then(res => {
+        axios.post(`api/store-guest`, formData).then(res => {
             if(res.data.status === 200)
             {
                 swal("Success!", res.data.message, "success");
-                document.getElementById('GUEST_FORM').reset();
+                setGuest({...guestInput,
+                    guest_name: '',
+                    lc_number: '',
+                    image: '',
+                    duration: '',
+                    slot_id: '',
+                    start_date: '',
+                    charge: '',
+                    remarks: '',
+                });
+
+                setError([]);
             }
-            else if(res.data.status === 400)
+            else if(res.data.status === 422)
             {
-                setGuest({...guestInput, error_list: res.data.errors});
+                swal("All fields are required!", "", "error");
+                setError(res.data.errors);
             }
             
         })
 
     }
-
-    // var display_error = [];
-    // if(ownerInput.error_list)
-    // {
-    //     display_error = [
-    //         ownerInput.error_list.firstname,
-    //         ownerInput.error_list.lastname,
-    //         ownerInput.error_list.contactno,
-    //         ownerInput.error_list.email,
-    //         ]
-    //     }
 
 
     return (
@@ -67,7 +81,7 @@ const Guest = () => {
 
             
 
-            <form onSubmit={submitGuest} id = "GUEST-FORM" >
+            <form encType="multipart/form-data" onSubmit={submitGuest} id = "GUEST-FORM" >
                 <div className="tab-content" id="myTabContent">
                     <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"></div>
                     
@@ -75,34 +89,46 @@ const Guest = () => {
                     <div className="form-group mb-3">
                         <label>Guest Name</label>
                         <input type="text" name="guest_name" onChange={handleInput} value={guestInput.guest_name} className="form-control" ></input>
-                        <span>{guestInput.error_list.guest_name}</span>
+                        <small className="text-danger">{errorlist.guest_name}</small>
                     </div>
                     <div className="form-group mb-3">
                         <label>License Number</label>
                         <input type="text" name="lc_number" onChange={handleInput} value={guestInput.lc_number}  className="form-control" ></input>
-                        <span>{guestInput.error_list.lc_number}</span>
+                        <small className="text-danger">{errorlist.lc_number}</small>
                     </div>
+
+                    <div className="form-group mb-3">
+                        <label>Image</label>
+                        <input type="file" name="image" onChange={handleImage} className="form-control" ></input>
+                        <small className="text-danger">{errorlist.image}</small>
+                    </div>
+
                     <div className="form-group mb-3">
                         <label>Duration</label>
                         <input type="number" name="duration" onChange={handleInput} value={guestInput.duration}  className="form-control" placeholder="In Hour" ></input>
-                        <span>{guestInput.error_list.duration}</span>
+                        <small className="text-danger">{guestInput.duration}</small>
                     </div>
 
 
                     <div className="form-group mb-3">
                         <label>Slot ID</label>
                         <input type="number" name="slot_id" onChange={handleInput} value={guestInput.slot_id}  className="form-control" ></input>
-                        <span>{guestInput.error_list.slot_id}</span>
+                        <small className="text-danger">{errorlist.slot_id}</small>
                     </div>
                     <div className="form-group mb-3">
                         <label>Start Date</label>
                         <input type="date" name="start_date" onChange={handleInput} value={guestInput.start_date}  className="form-control" ></input>
-                        <span>{guestInput.error_list.start_date}</span>
+                        <small className="text-danger">{errorlist.start_date}</small>
+                    </div>
+                    <div className="form-group mb-3">
+                        <label>Charge</label>
+                        <input type="number" name="charge" onChange={handleInput} value={guestInput.charge}  className="form-control" ></input>
+                        <small className="text-danger">{errorlist.charge}</small>
                     </div>
                     <div className="form-group mb-3">
                         <label>Remarks</label>
                         <input type="test" name="remarks" onChange={handleInput} value={guestInput.remarks}  className="form-control" ></input>
-                        <span>{guestInput.error_list.remarks}</span>
+                        <small className="text-danger">{errorlist.remarks}</small>
                     </div>
                     
                 </div>
