@@ -3,6 +3,7 @@ import About from '../components/frontend/About'
 import Guestt from '../components/frontend/Guestt'
 import ViewGuestt from '../components/frontend/ViewGuestt'
 import Ownerbooking from '../components/frontend/Ownerbooking'
+import Bk from '../components/frontend/Bk'
 // import Booking from '../components/frontend/Booking'
 import Page403 from '../components/errors/Page403'
 import Page404 from '../components/errors/Page404'
@@ -19,6 +20,7 @@ const publicRoutesList = [
     {path: '/guestt', exact: true, name: 'Guestt', component:Guestt},
     {path: '/viewguestt', exact: true, name: 'ViewGuestt', component:ViewGuestt},
     {path: '/Ownerbooking', exact: true, name: 'Ownerbooking', component:Ownerbooking},
+    {path: '/bk', exact: true, name: 'Bk', component:Bk},
     {path: '/booking', exact: true, name: 'ViewGuest', component:ViewGuest},
     {path: '/booking/:slot_id', exact: true, name: 'ViewSlottrans', component:ViewSlottrans},
     {path: '/booking/:slot_id/:guest_name', exact: true, name: 'SlotDetails', component:SlotDetails},

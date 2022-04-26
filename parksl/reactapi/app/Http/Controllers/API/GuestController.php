@@ -51,10 +51,10 @@ class GuestController extends Controller
         
         $validator = Validator::make($request->all(), [
             'guest_name' => 'required|max:191',
-            'lc_number' => 'required|max:15',
+            'lc_number' => 'required|max:25|unique:tbl_guest_booking',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'duration' => 'required|max:191',
-            'slot_id' => 'required|max:191',
+            // 'duration' => 'required|max:191',
+            'slot_id' => 'required|max:191|unique:tbl_guest_booking',
             'start_date' => 'required|max:191',
             'charge' => 'required|max:191',
         ]);
@@ -104,10 +104,10 @@ class GuestController extends Controller
 
         $validator = Validator::make($request->all(), [
             'guest_name' => 'required|max:191',
-            'lc_number' => 'required|max:15',
+            'lc_number' => 'required|max:25|unique:tbl_guest_booking',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'duration' => 'required|max:191',
-            'slot_id' => 'required|max:191',
+            // 'duration' => 'required|max:191',
+            'slot_id' => 'required|max:191|unique:tbl_guest_booking',
             'start_date' => 'required|max:191',
             'charge' => 'required|max:191',
         ]);

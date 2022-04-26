@@ -47,11 +47,12 @@ class ObookController extends Controller
 
         $validator = Validator::make($request->all(), [
             'o_name' => 'required|max:191',
-            'v_no' => 'required|max:191',
+            'v_no' => 'required|max:191|unique:owner_booking',
             'in_time' => 'required|max:191',
             'out_time' => 'required|max:191',
-            'd_slot' => 'required|max:191',
+            'd_slot' => 'required|max:191|unique:owner_booking',
             'v_type' => 'required|max:191',
+            'fees' => 'required',
         ]);
         if($validator->fails())
         {
@@ -70,6 +71,7 @@ class ObookController extends Controller
             $obook->out_time = $request->input('out_time');
             $obook->d_slot = $request->input('d_slot');
             $obook->v_type = $request->input('v_type');
+            $obook->fees = $request->input('fees');
             $obook->save();
 
             return response()->json([

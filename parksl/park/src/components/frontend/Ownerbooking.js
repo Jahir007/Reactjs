@@ -18,6 +18,7 @@ const Ownerbooking = () => {
         out_time: '',
         d_slot: '',
         v_type: '',
+        fees: '',
         error_list: [],
     });
 
@@ -36,6 +37,7 @@ const Ownerbooking = () => {
             out_time: obookInput.out_time,
             d_slot: obookInput.d_slot,
             v_type: obookInput.v_type,
+            fees: obookInput.fees,
         }
 
         axios.post(`api/st-obook`, data).then(res => {
@@ -45,7 +47,7 @@ const Ownerbooking = () => {
             }
             else if (res.data.status === 400) {
                 setObook({ ...obookInput, error_list: res.data.errors });
-                swal("Error!","All Fields are required!", "error");
+                // swal("Error!","All Fields are required!", "error");
             }
 
         })
@@ -86,6 +88,7 @@ const Ownerbooking = () => {
                     <td>{item.out_time}</td>
                     <td>{item.d_slot}</td>
                     <td>{item.v_type}</td>
+                    <td>{item.fees}</td>
                 </tr>
             )
         })
@@ -130,9 +133,9 @@ const Ownerbooking = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-2 mb-4">
+                    <div className="col-md-3 mb-5">
                     </div>
-                    <div className="col-md-4 mb-4">
+                    <div className="col-md-2 mb-4">
                         <div className="form-control d-flex flex-column">
                             <p className="h-blue">Default Slot(1-10)</p> <select name="d_slot" onChange={handleInput} value={obookInput.d_slot} className="border-0 outline-none">
                                 <option value="" hidden selected>select slot</option>
@@ -150,7 +153,7 @@ const Ownerbooking = () => {
                             <small className="text-danger">{obookInput.error_list.d_slot}</small>
                         </div>
                     </div>
-                    <div className="col-md-4 mb-4">
+                    <div className="col-md-2 mb-4">
                         <div className="form-control d-flex flex-column">
                             <p className="h-blue">Vehicle</p> <select name="v_type" onChange={handleInput} value={obookInput.v_type} className="border-0 outline-none">
                                 <option value="" hidden selected>type</option>
@@ -158,6 +161,15 @@ const Ownerbooking = () => {
                                 <option value="2 wheel">2 wheel</option>
                             </select>
                             <small className="text-danger">{obookInput.error_list.v_type}</small>
+                        </div>
+                    </div>
+                    <div className="col-md-2 mb-4">
+                        <div className="form-control d-flex flex-column">
+                            <p className="h-blue">Fees</p> <select name="fees" onChange={handleInput}  value={obookInput.fees} className="border-0 outline-none">
+                                <option value="" hidden selected>Cost</option>
+                                <option value="Zero Charges">Zero Charge</option>
+                            </select>
+                            <small className="text-danger">{obookInput.error_list.fees}</small>
                         </div>
                     </div>
                 </div>
@@ -184,6 +196,7 @@ const Ownerbooking = () => {
                                 <th>Out Time</th>
                                 <th>Slot Number</th>
                                 <th>Vehicle Type</th>
+                                <th>Fees</th>
                             </tr>
                         </thead>
                         <tbody>

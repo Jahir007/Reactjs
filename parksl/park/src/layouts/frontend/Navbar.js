@@ -19,7 +19,7 @@ const Navbar = () => {
                 swal("Sucess", res.data.message, "success");
                 history.push('/')
             }
-            });
+        });
     }
 
     var AuthButton = '';
@@ -63,11 +63,14 @@ const Navbar = () => {
                         {/* <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/Guestt">Guest</Link>
                         </li> */}
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/ViewGuestt">Guest</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/Booking">Booking</Link>
+                        </li> */}
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/Bk">Vk</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/About">About</Link>
