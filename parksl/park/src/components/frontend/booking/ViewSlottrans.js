@@ -60,13 +60,15 @@ const ViewSlottrans = (props) => {
                 <div className="col-md-3" key={idx}>
                     <div className="card">
                         <div className="card-body">
-                        <Link to="">
-                            <div className="card"> Name :{item.guest_name}</div>
+                        <Link to={`/booking/${item.slot_id}/${item.guest_name}`}>
+                            <div className="card" > Name :{item.guest_name}</div>
                             <div className="card"> Slot :{item.slot_id}</div>
                             <div className="card"> LICENSE : {item.lc_number}</div>
                             <div className="card"> Duration : {item.duration}</div>
+                            <div className="card"> Date : {item.start_date}</div>
+                            <div className="card"> Remarks : {item.remarks}</div>
                         </Link>
-                        <Link to="">
+                        <Link to={`/booking/${item.slot_id}/${item.guest_name}`}>
                         <img src={`http://localhost:8000/${item.image}`} className="w-100" alt={item.image} />
                         </Link>    
                         </div>

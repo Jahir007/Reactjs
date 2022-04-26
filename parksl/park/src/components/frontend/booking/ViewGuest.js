@@ -50,6 +50,9 @@ const ViewGuest = () => {
                             {/* <h5 className="card-title">{item.slot_id}</h5> */}
                         </Link>    
                         </div>
+                        {/* <Link to={`/booking/${item.slot_id}/${item.guest_name}`}>
+                        <img src={`http://localhost:8000/${item.image}`} className="w-100" alt={item.image} />
+                        </Link>    */}
                     </div>
                 </div>            
             )

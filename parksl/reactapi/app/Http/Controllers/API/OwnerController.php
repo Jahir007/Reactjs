@@ -83,7 +83,7 @@ class OwnerController extends Controller
         $validator = Validator::make($request->all(), [
             'firstname' => 'required|max:191',
             'lastname' => 'required|max:191',
-            'email' => 'required|email|max:191|unique:tbl_owner',
+            // 'email' => 'required|email|max:191|unique:tbl_owner',
             'contactno' => 'required|max:191',
         ]);
         if($validator->fails())

@@ -9,6 +9,7 @@ use App\Http\Controllers\API\SlotController;
 use App\Http\Controllers\API\VehicleController;
 use App\Http\Controllers\API\SlottransController;
 use App\Http\Controllers\API\FrontendController;
+use App\Http\Controllers\API\ObookController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -17,6 +18,11 @@ Route::post('login', [AuthController::class, 'login']);
 //getguest for booking in navbar
 Route::get('getGuest', [FrontendController::class, 'guest']);
 Route::get('fetchGuest/{slot_id}', [FrontendController::class, 'guest']);
+Route::get('view-slot/${guest_name}', [FrontendController::class, 'viewslot']);
+
+//obook
+Route::post('st-obook', [ObookController::class, 'st']);
+Route::get('/view-obook', [ObookController::class, 'index']);
 
 Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 
@@ -26,11 +32,13 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 
 
     //Owner
-    Route::get('/view-owner', [OwnerController::class, 'index']);
+    Route::get('/view-owner', [OwnerController::class, 'index']);   
     Route::post('store-owner', [OwnerController::class, 'store']);
     Route::get('edit-owner/{id}', [OwnerController::class, 'edit']);
     Route::put('update-owner/{id}', [OwnerController::class, 'update']);
     Route::delete('delete-owner/{id}', [OwnerController::class, 'destroy']);
+
+
 
     //Guest
     Route::get('/view-guest', [GuestController::class, 'index']);

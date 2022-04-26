@@ -53,15 +53,24 @@ const Navbar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarScroll">
-                    <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" >
+                    <ul className="navbar-nav ms-right  my-2 my-lg-0 navbar-nav-scroll" >
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/About">About</Link>
+                            <Link className="nav-link active" aria-current="page" to="/Ownerbooking">OwnerBooking</Link>
+                        </li>
+                        {/* <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/Guestt">Guest</Link>
+                        </li> */}
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/ViewGuestt">Guest</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/Booking">Booking</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/About">About</Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav ms-auto" >

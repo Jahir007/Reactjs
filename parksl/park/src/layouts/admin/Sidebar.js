@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom'
 
 
+
 const Sidebar = () => {
 
     return(
@@ -63,10 +64,7 @@ const Sidebar = () => {
                 </Link>
 
 
-                <Link className="nav-link" to="/admin/profile">
-                    <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
-                    profile
-                </Link>
+                
 
                 {/* <div className="sb-sidenav-menu-heading">Interface</div>
                 <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -93,9 +91,9 @@ const Sidebar = () => {
                         </Link>
                         <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav className="sb-sidenav-menu-nested nav">
-                                <Link className="nav-link" to="login.html">Login</Link>
-                                <Link className="nav-link" to="register.html">Register</Link>
-                                <Link className="nav-link" to="password.html">Forgot Password</Link>
+                                <Link className="nav-link" to="/login">Login</Link>
+                                <Link className="nav-link" to="/register">Register</Link>
+                                {/* <Link className="nav-link" to="password.html">Forgot Password</Link> */}
                             </nav>
                         </div>
                         <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
@@ -104,22 +102,22 @@ const Sidebar = () => {
                         </Link>
                         <div className="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav className="sb-sidenav-menu-nested nav">
-                                <Link className="nav-link" to="401.html">401 Page</Link>
-                                <Link className="nav-link" to="404.html">404 Page</Link>
-                                <Link className="nav-link" to="500.html">500 Page</Link>
+                                <Link className="nav-link" to="/403">403 Page</Link>
+                                <Link className="nav-link" to="/404">404 Page</Link>
+                                {/* <Link className="nav-link" to="500.html">500 Page</Link> */}
                             </nav>
                         </div>
                     </nav>
                 </div>
-                <div className="sb-sidenav-menu-heading">Addons</div>
+                {/* <div className="sb-sidenav-menu-heading">Addons</div> */}
                 {/* <Link className="nav-link" to="charts.html">
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
                     Charts
                 </Link> */}
-                <Link className="nav-link" to="tables.html">
+                {/* <Link className="nav-link" to="tables.html">
                     <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
                     Tables
-                </Link>
+                </Link> */}
             </div>
         </div>
         

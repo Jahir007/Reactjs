@@ -47,18 +47,6 @@ const Owner = () => {
 
     }
 
-    // var display_error = [];
-    // if(ownerInput.error_list)
-    // {
-    //     display_error = [
-    //         ownerInput.error_list.firstname,
-    //         ownerInput.error_list.lastname,
-    //         ownerInput.error_list.contactno,
-    //         ownerInput.error_list.email,
-    //         ]
-    //     }
-
-
     return (
         <div className="container-fluid px-4">
             <h1 className="mt-4">Add Owner</h1>

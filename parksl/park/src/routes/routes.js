@@ -1,5 +1,5 @@
-import Dashboard from '../components/admin/Dashboard';
-import Profile from '../components/admin/Profile';
+import Dashboard from '../components/admin/dashboard/Dashboard';
+// import Profile from '../components/admin/Profile';
 
 import Owner from '../components/admin/owner/Owner';
 import ViewOwner from '../components/admin/owner/ViewOwner';
@@ -24,7 +24,7 @@ import EditSlottrans from '../components/admin/slottrans/EditSlottrans';
 
 const routes = [
     { path: '/admin', exact: true, name: 'Admin'},
-    { path: '/admin/dashboard', exact: true, name: 'Dashboard', component: Dashboard },
+    { path: '/admin/Dashboard', exact: true, name: 'Dashboard', component: Dashboard },
 
     { path: '/admin/add-owner', exact: true, name: 'Owner', component: Owner },
     { path: '/admin/view-owner', exact: true, name: 'ViewOwner', component: ViewOwner },
@@ -32,7 +32,7 @@ const routes = [
     
     { path: '/admin/add-guest', exact: true, name: 'Guest', component: Guest },
     { path: '/admin/view-guest', exact: true, name: 'ViewGuest', component: ViewGuest },
-    { path: '/admin/edit-guest/:id', exact: true, name: 'EditGuest', component: EditGuest },
+    { path: '/admin/edit-guest/:id', exact: true, name: 'EditGuest', component: EditGuest },    
 
 
     { path: '/admin/add-slot', exact: true, name: 'Slot', component: Slot },
@@ -47,7 +47,7 @@ const routes = [
     { path: '/admin/view-slottrans', exact: true, name: 'ViewSlottrans', component: ViewSlottrans },
     { path: '/admin/edit-slottrans/:id', exact: true, name: 'EditSlottrans', component: EditSlottrans },
 
-    { path: '/admin/profile', exact: true, name: 'Profile', component: Profile },
+    // { path: '/admin/profile', exact: true, name: 'Profile', component: Profile },
 ];
 
 export default routes;
