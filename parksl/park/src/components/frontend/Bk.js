@@ -51,7 +51,7 @@ const Bk = () => {
         axios.post(`api/store-guest`, formData).then(res => {
             if(res.data.status === 200)
             {
-                swal("Success!", res.data.message, "success");
+                swal("Booked!","", "success");
                 setGuest({...guestInput,
                     guest_name: '',
                     lc_number: '',
@@ -132,7 +132,7 @@ const Bk = () => {
                 <div className="row">
                     <div className="col-md-6 col-12 mb-4">
                         <div className="form-control d-flex flex-column">
-                            <p className="h-blue">Image</p> <input name="image" onChange={handleImage}  className="inputbox textmuted" type="file" />
+                            <p className="h-blue">License image</p> <input name="image" onChange={handleImage}  className="inputbox textmuted" type="file" />
                             <small className="text-danger">{error_list.image}</small>
                         </div>
                     </div>
@@ -142,25 +142,25 @@ const Bk = () => {
                     </div> */}
                     <div className="col-md-3 mb-4">
                     <div className="form-control d-flex flex-column">
-                            <p className="h-blue">Duration (Rs. 40/Hours)</p> <select name="charge" onChange={handleInput} value={guestInput.charge} className="border-0 outline-none">
+                            <p className="h-blue">Charges (Rs. 40/Hours)</p> <select name="charge" onChange={handleInput} value={guestInput.charge} className="border-0 outline-none">
                                 <option value="" hidden selected>Hours/days</option>
-                                <option value="RS. 40">1 hour</option>
-                                <option value="Rs. 80">2 hours</option>
-                                <option value="Rs. 120">3 hours</option>
-                                <option value="Rs. 160">4 hours</option>
-                                <option value="Rs. 200">5 hours</option>
-                                <option value="Rs. 240">6 hours</option>
-                                <option value="Rs. 280">7 hours</option>
-                                <option value="Rs. 320">8 hours</option>
-                                <option value="Rs. 360">9 hours</option>
-                                <option value="Rs. 400">10 hours</option>
-                                <option value="Rs. 440">11 hours</option>
-                                <option value="Rs. 480">12 hours</option>
+                                <option value="RS. 20">1 hour</option>
+                                <option value="Rs. 40">2 hours</option>
+                                <option value="Rs. 60">3 hours</option>
+                                <option value="Rs. 80">4 hours</option>
+                                <option value="Rs. 100">5 hours</option>
+                                <option value="Rs. 120">6 hours</option>
+                                <option value="Rs. 140">7 hours</option>
+                                <option value="Rs. 160">8 hours</option>
+                                <option value="Rs. 180">9 hours</option>
+                                <option value="Rs. 200">10 hours</option>
+                                <option value="Rs. 220">11 hours</option>
+                                <option value="Rs. 240">12 hours</option>
                                 <hr />
-                                <option value="Rs. 500">1 day</option>
-                                <option value="Rs. 700">2 days</option>
-                                <option value="Rs. 1000">3 days</option>
-                                <option value="Rs. 1200">4 days</option>   
+                                <option value="Rs. 240">1 day</option>
+                                <option value="Rs. 480">2 days</option>
+                                <option value="Rs. 720">3 days</option>
+                                <option value="Rs. 960">4 days</option>   
                             </select>
                             <small className="text-danger">{error_list.charge}</small>
                         </div> 

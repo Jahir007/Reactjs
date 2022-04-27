@@ -62,32 +62,33 @@ const Slottrans = () => {
 
                     <div className="form-group mb-3">
                         <label>Slot ID</label>
-                        <input type="number" name="slot_id" onChange={handleInput} value={slottransInput.slot_id} className="form-control" ></input>
-                        <span>{slottransInput.error_list.slot_id}</span>
+                        <input type="text" name="slot_id" onChange={handleInput} value={slottransInput.slot_id} className="form-control" ></input>
+                        <span className="text-danger">{slottransInput.error_list.slot_id}</span>
                     </div>
 
                     <div className="form-group mb-3">
                         <label>Vehicle ID</label>
-                        <input type="number" name="vehicle_id" onChange={handleInput} value={slottransInput.vehicle_id} className="form-control" ></input>
-                        <span>{slottransInput.error_list.vehicle_id}</span>
+                        <input type="text" name="vehicle_id" onChange={handleInput} value={slottransInput.vehicle_id} className="form-control" ></input>
+                        <span className="text-danger">{slottransInput.error_list.vehicle_id}</span>
                     </div>
 
                     <div className="form-group mb-3">
                         <label>License No</label>
-                        <input type="number" name="lc_number" onChange={handleInput} value={slottransInput.lc_number} className="form-control" ></input>
-                        <span>{slottransInput.error_list.lc_number}</span>
+                        <input type="text" name="lc_number" onChange={handleInput} value={slottransInput.lc_number} className="form-control" ></input>
+                        <span className="text-danger">{slottransInput.error_list.lc_number}</span>
                     </div>
 
 
                     <div className="form-group mb-3">
                         <label>Start Date and Time </label>
                         <input type="datetime-local" name="start_date_time" onChange={handleInput} value={slottransInput.start_date_time} className="form-control" ></input>
+                        <span className="text-danger">{slottransInput.error_list.start_date_time}</span>
                     </div>
 
                     <div className="form-group mb-3">
                         <label>End Date and Time </label>
                         <input type="datetime-local" name="end_date_time" onChange={handleInput} value={slottransInput.end_date_time} className="form-control" ></input>
-                        <span>{slottransInput.error_list.end_date_time}</span>
+                        <span className="text-danger">{slottransInput.error_list.end_date_time}</span>
                     </div>
                     
                     

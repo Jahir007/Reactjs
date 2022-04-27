@@ -94,6 +94,8 @@ const ViewVehicle = () => {
                                 <th>Description</th>
                                 <th>Photo</th>
                                 <th>Status</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>

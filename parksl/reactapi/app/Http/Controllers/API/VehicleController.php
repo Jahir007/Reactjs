@@ -46,10 +46,10 @@ class VehicleController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'category_id' => 'required',
-            'lc_number' => 'required|max:191',
+            'category_id' => 'required|max:3|unique:tbl_vehicle',
+            'lc_number' => 'required|max:25|unique:tbl_vehicle',
             'description' => 'required|max:191',
-            'owner_id' => 'required|max:191',
+            'owner_id' => 'required|max:25|unique:tbl_vehicle',
         ]);
         if($validator->fails())
         {
@@ -82,10 +82,10 @@ class VehicleController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'category_id' => 'required',
-            'lc_number' => 'required|max:191',
+            'category_id' => 'required|max:3',
+            'lc_number' => 'required|max:25',
             'description' => 'required|max:191',
-            'owner_id' => 'required|max:191',
+            'owner_id' => 'required|max:25',
         ]);
         if($validator->fails())
         {

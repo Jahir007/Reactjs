@@ -86,25 +86,25 @@ const EditOwner = (props) => {
                             <div className="form-group mb-3">
                                 <label>First Name</label>
                                 <input type="text" name="firstname" onChange={handleInput} value={ownerInput.firstname} className="form-control" ></input>
-                                <small>{error.firstname}</small>
+                                <small className="text-danger">{error.firstname}</small>
 
                             </div>
                             <div className="form-group mb-3">
                                 <label>Last Name</label>
                                 <input type="text" name="lastname" onChange={handleInput} value={ownerInput.lastname} className="form-control" ></input>
-                                <small>{error.lastname}</small>
+                                <small className="text-danger">{error.lastname}</small>
 
                             </div>
                             <div className="form-group mb-3">
                                 <label>Contact NO</label>
                                 <input type="text" name="contactno" onChange={handleInput} value={ownerInput.contactno} className="form-control" ></input>
-                                <small>{error.contactno}</small>
+                                <small className="text-danger">{error.contactno}</small>
 
                             </div>
                             <div className="form-group mb-3">
                                 <label>Email</label>
                                 <input type="text" name="email" onChange={handleInput} value={ownerInput.email} className="form-control" ></input>
-                                <small>{error.email}</small>
+                                <small className="text-danger">{error.email}</small>
 
 
                             </div>

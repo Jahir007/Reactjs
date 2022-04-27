@@ -46,8 +46,8 @@ class SlotController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'number' => 'required|max:191',
-            'owner_id' => 'required|max:191',
+            'number' => 'required|max:10|unique:tbl_slot',
+            'owner_id' => 'required|max:25|unique:tbl_slot',
         ]);
         if($validator->fails())
         {
@@ -77,8 +77,8 @@ class SlotController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'number' => 'required|max:191',
-            'owner_id' => 'required|max:191',
+            'number' => 'required|max:10',
+            'owner_id' => 'required|max:25',
         ]);
         if($validator->fails())
         {

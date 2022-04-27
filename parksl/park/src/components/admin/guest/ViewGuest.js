@@ -68,7 +68,7 @@ const ViewGuest = () => {
                     <td>{item.duration} hours</td>
                     <td>{item.slot_id}</td>
                     <td>{item.start_date}</td>
-                    <td>Rs. {item.charge}</td>
+                    <td>{item.charge}</td>
                     <td>{item.remarks}</td>
                     <td>
                         <Link to={`edit-guest/${item.id}`} className="btn btn-success btn-sm">Edit</Link>

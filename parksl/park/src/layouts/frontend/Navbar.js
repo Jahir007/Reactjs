@@ -70,7 +70,10 @@ const Navbar = () => {
                             <Link className="nav-link active" aria-current="page" to="/Booking">Booking</Link>
                         </li> */}
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/Bk">Vk</Link>
+                            <Link className="nav-link active" aria-current="page" to="/Bk">GuestBooking</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" aria-current="page" to="/Payment">Payment</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/About">About</Link>

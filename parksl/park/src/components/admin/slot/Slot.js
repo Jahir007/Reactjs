@@ -43,18 +43,6 @@ const Slot = () => {
 
     }
 
-    // var display_error = [];
-    // if(ownerInput.error_list)
-    // {
-    //     display_error = [
-    //         ownerInput.error_list.firstname,
-    //         ownerInput.error_list.lastname,
-    //         ownerInput.error_list.contactno,
-    //         ownerInput.error_list.email,
-    //         ]
-    //     }
-
-
     return (
         <div className="container-fluid px-4">
             <h1 className="mt-4">Add Slot</h1>
@@ -69,12 +57,12 @@ const Slot = () => {
                     <div className="form-group mb-3">
                         <label>Number</label>
                         <input type="number" name="number" onChange={handleInput} value={slotInput.number} className="form-control" ></input>
-                        <span>{slotInput.error_list.number}</span>
+                        <small className="text-danger">{slotInput.error_list.number}</small>
                     </div>
                     <div className="form-group mb-3">
                         <label>Owner ID</label>
                         <input type="number" name="owner_id" onChange={handleInput} value={slotInput.owner_id} className="form-control" ></input>
-                        <span>{slotInput.error_list.owner_id}</span>
+                        <small className="text-danger">{slotInput.error_list.owner_id}</small>
                     </div>
                     
                     <div className="form-group mb-3">

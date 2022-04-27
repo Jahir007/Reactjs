@@ -94,6 +94,8 @@ const ViewOwner = () => {
                                 <th>Contact No</th>
                                 <th>Email</th>
                                 <th>Status</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>

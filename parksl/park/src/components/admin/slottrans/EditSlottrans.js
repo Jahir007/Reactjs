@@ -85,19 +85,19 @@ const EditSlottrans = (props) => {
 
                             <div className="form-group mb-3">
                                 <label>Slot ID</label>
-                                <input type="number" name="slot_id" className="form-control" value={slottransInput.slot_id} onChange={handleInput} />
+                                <input type="text" name="slot_id" className="form-control" value={slottransInput.slot_id} onChange={handleInput} />
                                 <small className="text-danger">{error.slot_id}</small>
 
                             </div>
                             <div className="form-group mb-3">
                                 <label>Vehicle ID</label>
-                                <input type="number" name="vehicle_id" className="form-control" value={slottransInput.vehicle_id} onChange={handleInput} />
+                                <input type="text" name="vehicle_id" className="form-control" value={slottransInput.vehicle_id} onChange={handleInput} />
                                 <small className="text-danger">{error.vehicle_id}</small>
                             </div>
 
                             <div className="form-group mb-3">
                                 <label>License No</label>
-                                <input type="number" name="lc_number" className="form-control" value={slottransInput.license_no} onChange={handleInput} />
+                                <input type="text" name="lc_number" className="form-control" value={slottransInput.license_no} onChange={handleInput} />
                                 <small className="text-danger">{error.lc_number}</small>
                             </div>
 

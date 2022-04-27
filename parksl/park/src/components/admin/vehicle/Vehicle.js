@@ -65,31 +65,31 @@ const Vehicle = () => {
                     <div className="form-group mb-3">
                         <label>category ID</label>
                         <input type="number" name="category_id" onChange={handleInput} value={vehicleInput.category_id} className="form-control" ></input>
-                        <span>{vehicleInput.error_list.category_id}</span>
+                        <span className="text-danger">{vehicleInput.error_list.category_id}</span>
                     </div>
 
                     <div className="form-group mb-3">
                         <label>License No</label>
                         <input type="text" name="lc_number" onChange={handleInput} value={vehicleInput.lc_number} className="form-control" ></input>
-                        <span>{vehicleInput.error_list.lc_number}</span>   
+                        <span className="text-danger">{vehicleInput.error_list.lc_number}</span>   
                     </div>
 
                     <div className="form-group mb-3">
                         <label>Description</label>
                         <textarea name="description" onChange={handleInput} value={vehicleInput.description} className="form-control" ></textarea>
-                        <span>{vehicleInput.error_list.description}</span>
+                        <span className="text-danger">{vehicleInput.error_list.description}</span>
                     </div>
 
                     <div className="form-group mb-3">
                         <label>Photo</label>
                         <input type="file" name="photo" onChange={handleInput} value={vehicleInput.photo} className="form-control" ></input>
-                        <span>{vehicleInput.error_list.photo}</span>
+                        <span className="text-danger">{vehicleInput.error_list.photo}</span>
                     </div>
 
                     <div className="form-group mb-3">
                         <label>Owner ID</label>
                         <input type="number" name="owner_id" onChange={handleInput} value={vehicleInput.owner_id} className="form-control" ></input>
-                        <span>{vehicleInput.error_list.owner_id}</span>
+                        <span className="text-danger">{vehicleInput.error_list.owner_id}</span>
                     </div>
 
                     <div className="form-group mb-3">

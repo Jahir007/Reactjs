@@ -90,6 +90,8 @@ const ViewSlot = () => {
                                 <th>Number</th>
                                 <th>Owner ID</th>
                                 <th>Status</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>

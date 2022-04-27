@@ -136,13 +136,13 @@ const EditGuest = (props) => {
                             </div>
                             <div className="form-group mb-3">
                                 <label>Duration</label>
-                                <input type="number" name="duration" className="form-control" value={guestInput.duration} onChange={handleInput} />
+                                <input type="text" name="duration" className="form-control" value={guestInput.duration} onChange={handleInput} />
                                 <small className="text-danger">{errorlist.duration}</small>
 
                             </div>
                             <div className="form-group mb-3">
                                 <label>Slot ID</label>
-                                <input type="number" name="slot_id" className="form-control" value={guestInput.slot_id} onChange={handleInput} />
+                                <input type="text" name="slot_id" className="form-control" value={guestInput.slot_id} onChange={handleInput} />
                                 <small className="text-danger">{errorlist.slot_id}</small>
 
                             </div>
@@ -153,7 +153,7 @@ const EditGuest = (props) => {
                             </div>
                             <div className="form-group mb-3">
                                 <label>Charge</label>
-                                <input type="number" name="charge" className="form-control" value={guestInput.charge} onChange={handleInput} />
+                                <input type="text" name="charge" className="form-control" value={guestInput.charge} onChange={handleInput} />
                                 <small className="text-danger">{errorlist.charge}</small>
                             </div>
 

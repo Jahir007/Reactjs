@@ -46,9 +46,9 @@ class SlottransController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'slot_id' => 'required',
-            'vehicle_id' => 'required',
-            'lc_number' => 'required',
+            'slot_id' => 'required|max:2|unique:tbl_slottrans',
+            'vehicle_id' => 'required|max:9|unique:tbl_slottrans',
+            'lc_number' => 'required|max:25|unique:tbl_slottrans',
             'start_date_time' => 'required',
             'end_date_time' => 'required',
         ]);
@@ -82,9 +82,9 @@ class SlottransController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'slot_id' => 'required',
-            'vehicle_id' => 'required',
-            'lc_number' => 'required',
+            'slot_id' => 'required|max:2',
+            'vehicle_id' => 'required|max:9',
+            'lc_number' => 'required|max:25',
             'start_date_time' => 'required',
             'end_date_time' => 'required',
         ]);

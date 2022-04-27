@@ -64,7 +64,7 @@ const Guest = () => {
 
                 setError([]);
             }
-            else if(res.data.status === 422)
+            else if(res.data.status === 400)
             {
                 swal("All fields are required!", "", "error");
                 setError(res.data.errors);

@@ -18,7 +18,7 @@ function Cards() {
               src='../../images/Guest.jpg'
               text='Enetr Details before booking of slot'
               label='Guest'
-              path='/Guestt'
+              path='/Bk'
             />
            
           </ul>

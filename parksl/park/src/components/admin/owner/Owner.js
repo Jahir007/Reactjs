@@ -61,22 +61,22 @@ const Owner = () => {
                     <div className="form-group mb-3">
                         <label>First Name</label>
                         <input type="text" name="firstname" onChange={handleInput} value={ownerInput.firstname} className="form-control" ></input>
-                        <span>{ownerInput.error_list.firstname}</span>
+                        <small className="text-danger">{ownerInput.error_list.firstname}</small>
                     </div>
                     <div className="form-group mb-3">
                         <label>Last Name</label>
                         <input type="text" name="lastname" onChange={handleInput} value={ownerInput.lastname}  className="form-control" ></input>
-                        <span>{ownerInput.error_list.lastname}</span>
+                        <small className="text-danger">{ownerInput.error_list.lastname}</small>
                     </div>
                     <div className="form-group mb-3">
                         <label>Contact NO</label>
                         <input type="text" name="contactno" onChange={handleInput} value={ownerInput.contactno}  className="form-control" ></input>
-                        <span>{ownerInput.error_list.contactno}</span>
+                        <small className="text-danger">{ownerInput.error_list.contactno}</small>
                     </div>
                     <div className="form-group mb-3">
                         <label>Email</label>
                         <input type="text" name="email" onChange={handleInput} value={ownerInput.email}  className="form-control" ></input>
-                        <span>{ownerInput.error_list.email}</span>
+                        <small className="text-danger">{ownerInput.error_list.email}</small>
                     </div>
                     <div className="form-group mb-3">
                         <label>Status</label>

@@ -86,31 +86,31 @@ const EditVehicle = (props) => {
                             <div className="form-group mb-3">
                                 <label>Category ID</label>
                                 <input type="number" name="category_id" onChange={handleInput} value={vehicleInput.category_id} className="form-control" ></input>
-                                <small>{error.category_id}</small>
+                                <small className="text-danger">{error.category_id}</small>
                             </div>
 
                             <div className="form-group mb-3">
                                 <label>License No</label>
                                 <input type="text" name="lc_number" onChange={handleInput} value={vehicleInput.lc_number} className="form-control" ></input>
-                                <small>{error.lc_number}</small>
+                                <small className="text-danger">{error.lc_number}</small>
                             </div>
 
                             <div className="form-group mb-3">
                                 <label>Description</label>
                                 <textarea name="description" onChange={handleInput} value={vehicleInput.description} className="form-control" ></textarea>
-                                <small>{error.description}</small>
+                                <small className="text-danger">{error.description}</small>
                             </div>
 
                             <div className="form-group mb-3">
                                 <label>Photo</label>
                                 <input type="text" name="photo" onChange={handleInput} value={vehicleInput.photo} className="form-control" ></input>
-                                <small>{error.photo}</small>
+                                <small className="text-danger">{error.photo}</small>
                             </div>
 
                             <div className="form-group mb-3">
                                 <label>Owner ID</label>
                                 <input type="number" name="owner_id" onChange={handleInput} value={vehicleInput.owner_id} className="form-control" ></input>
-                                <small>{error.owner_id}</small>
+                                <small className="text-danger">{error.owner_id}</small>
                             </div>
 
                             <div className="form-group mb-3">

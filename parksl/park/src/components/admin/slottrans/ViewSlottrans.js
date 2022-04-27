@@ -94,6 +94,8 @@ const ViewSlottrans = () => {
                                 <th>LC Number</th>
                                 <th>Start Date Time</th>
                                 <th>End Date Time</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>

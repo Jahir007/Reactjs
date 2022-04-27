@@ -86,13 +86,13 @@ const EditSlot = (props) => {
                             <div className="form-group mb-3">
                                 <label>Number</label>
                                 <input type="number" name="number" onChange={handleInput} value={slotInput.firstname} className="form-control" ></input>
-                                <small>{error.number}</small>
+                                <small className="text-danger">{error.number}</small>
 
                             </div>
                             <div className="form-group mb-3">
                                 <label>Owner ID</label>
                                 <input type="number" name="owner_id" onChange={handleInput} value={slotInput.owner_id} className="form-control" ></input>
-                                <small>{error.owner_id}</small>
+                                <small className="text-danger">{error.owner_id}</small>
 
                             </div>
                            
